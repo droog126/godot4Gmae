@@ -1,33 +1,20 @@
 extends Panel
 
-@onready var debug_menu_status = $debugMenuStatus
-@onready var viewpoint_status = $viewpointStatus
+
+@onready var Status = $Status
 
 
-var debugModeMap = {
-	0 : '关闭',
-	1 : 'Cmd',
-	2 : 'Opertor'
-}
-var cameraModeMap = {
-	0 :
-}
 
 func _ready():
-	pass # Replace with function body.
+	Status.add_theme_font_size_override('font_size',12)
+	pass 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	debugMenuStatusUpdate()
-	viewPortStatusUpdate()
-	pass
-
-func debugMenuStatusUpdate():
-	var mode = get_parent().debugMenuMode
-	debug_menu_status.text = str('debug菜单状态',debugModeMap[mode])
-	pass
-	
-func viewPortStatusUpdate():
-	var node = get_node('/root/GCamera')
+	var textArr = []
+	textArr.push_back(str('调试菜单状态: ',_G.menuDebug_get_text()))
+	textArr.push_back(str('相机状态: ',_G.cameraMode_get_text()))
+	textArr.push_back(str('输入状态: ',_G.inputMode_get_text()))
+	var text = Utils.joinArrayElements(textArr,'\n')
+	Status.text = text
 	pass

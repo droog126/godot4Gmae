@@ -47,3 +47,14 @@ func traverse_scene_tree(scene: Node = null) -> void:
 
 		# 递归遍历子节点
 		traverse_scene_tree(child)
+
+
+func joinArrayElements(array: Array, separator: String) -> String:
+	var joinedString = ""
+
+	for i in range(array.size()):
+		joinedString += str(array[i])
+		if i < array.size() - 1:
+			joinedString += separator
+
+	return joinedString

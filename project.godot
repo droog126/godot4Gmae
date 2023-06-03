@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+_G="*res://global/_G.gd"
 Global="*res://global/index.gd"
 GDebug="*res://debug/debug_menu.tscn"
 GCamera="*res://system/camera/camera.tscn"

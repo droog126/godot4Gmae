@@ -1,0 +1,1 @@
+&"C:\Users\宁涛\Desktop\godot4\Godot_v4.0.3-stable_win64.exe" --path "c:\Users\宁涛\Desktop\MyGameServer" -e

@@ -1,36 +1,35 @@
 extends Node3D
 @onready var camera = $Camera3D
 
-var cameraMode: CameraMode = CameraMode.Static
-enum CameraMode {
-	Static,
-	Debug,
-	ThirdPerson,
-	FirstPerson
-}
 
-var cameraTarget = null;
-var cameraDevitation = Vector3();
+
+
+
+var CameraMode = _G.CameraMode
+
+func _ready():
+	_G.singletonNodeGroup['cameraNode'] = self
 
 func debug():
 	camera.current = true;
 	if Input.is_action_just_pressed('f2'):
-		cameraMode = ( cameraMode + 1 ) % len(CameraMode)
+		_G.cameraMode_add_circle() 
+		
 		
 func _input(event):
 	debug()
-	if cameraMode == CameraMode.Static:
-		camera.rotation.x = 0
-		rotation.y = 0
-	elif cameraMode == CameraMode.Debug:
+	if _G.cameraMode == CameraMode.Static:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		pass
+	elif _G.cameraMode == CameraMode.Debug:
 		if event is InputEventMouseMotion:
 			rotate_y(-event.relative.x * .005)
 			camera.rotate_x(-event.relative.y * .005)
 			camera.rotation.x = clamp(camera.rotation.x,-PI/2,PI/2)
-	elif cameraMode == CameraMode.ThirdPerson:
+	elif _G.cameraMode == CameraMode.ThirdPerson:
 
-		if cameraTarget == null:
-			cameraMode = CameraMode.Static
+		if _G.cameraTarget == null:
+			_G.cameraMode = CameraMode.Static
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
 			Log.debug(str('第三人称，没找到附身对象'))
@@ -46,10 +45,10 @@ func _input(event):
 			pass
 
 	
-	elif cameraMode == CameraMode.FirstPerson:
+	elif _G.cameraMode == CameraMode.FirstPerson:
 
-		if cameraTarget == null:
-			cameraMode = CameraMode.Static
+		if _G.cameraTarget == null:
+			_G.cameraMode = CameraMode.Static
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			Log.debug(str('第一人称，没找到附身对象'))
 		else:
@@ -64,7 +63,7 @@ func _input(event):
 
 var mouse_switch = false
 func _process(delta):
-	if cameraMode == CameraMode.Debug:
+	if _G.cameraMode == CameraMode.Debug:
 	#	print("here",camera.global_rotation,global_rotation,global_transform.basis)
 		var x = Input.get_axis("a","d");
 		var z = Input.get_axis("w","s");
@@ -82,14 +81,14 @@ func _process(delta):
 			else:
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				
-	elif cameraMode == CameraMode.ThirdPerson:
-		global_position = cameraTarget.global_position + cameraTarget.transform.basis.z * 2 + Vector3(0,2,0)
-		rotation.y = cameraTarget.rotation.y
+	elif _G.cameraMode == CameraMode.ThirdPerson:
+		global_position = _G.cameraTarget.global_position + _G.cameraTarget.transform.basis.z * 2 + Vector3(0,2,0)
+		rotation.y = _G.cameraTarget.rotation.y
 		
 		pass
-	elif cameraMode == CameraMode.FirstPerson:
-		global_transform.origin = cameraTarget.global_position + Vector3(0,0.4,-0.2).rotated(Vector3(0,1,0),cameraTarget.rotation.y)
-		rotation.y = cameraTarget.rotation.y
+	elif _G.cameraMode == CameraMode.FirstPerson:
+		global_transform.origin = _G.cameraTarget.global_position + Vector3(0,0.4,-0.2).rotated(Vector3(0,1,0),_G.cameraTarget.rotation.y)
+		rotation.y = _G.cameraTarget.rotation.y
 
 		pass
 

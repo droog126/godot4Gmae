@@ -1,15 +1,4 @@
 extends Node
-enum InputMode {
-	MENU_MODE,
-	GAME_MODE,
-}
-
-var input_mode: InputMode = InputMode.MENU_MODE
-
-func _process(delta):
-	if Input.is_action_pressed('f1'):
-		input_mode = (input_mode + 1) % 2
-	
 
 
 var player_info = {}

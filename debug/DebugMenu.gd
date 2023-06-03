@@ -6,23 +6,16 @@ extends CanvasLayer
 @onready var cmd = $Cmd
 @onready var opertor = $Opertor
 
-enum DebugMenu {
-	Close,
-	Cmd,
-	Opertor
-}
-
-var debugMenuMode = DebugMenu.Close
+var MenuDebugMode = _G.MenuDebugMode
 var opertorNodes:  Array = []
 
 func _input(event):
 	if event.is_action_pressed('tab'):
-		debugMenuMode += 1
-		debugMenuMode %= DebugMenu.size()
+		_G.menuDebug_add_circle()
 		CloseMenu()
-		if debugMenuMode == DebugMenu.Opertor:
+		if _G.menuDebugMode == MenuDebugMode.Opertor:
 			DebugMenuOpertorInit()
-		if debugMenuMode == DebugMenu.Cmd:
+		elif _G.menuDebugMode == MenuDebugMode.Cmd:
 			CmdMenuInit()
 
 func _ready():

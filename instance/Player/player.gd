@@ -38,7 +38,7 @@ func _ready():
 
 var input_dir = Vector2();
 func _unhandled_input(event):
-	if Global.input_mode == Global.InputMode.MENU_MODE: return
+	if _G.inputMode != _G.InputMode.Game: return
 	if not is_multiplayer_authority(): return
 	
 	input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -65,7 +65,7 @@ func _physics_process(_delta):
 		velocity.y =  move_toward(velocity.y,-gravity,SPEED/20)
 
 	# Handle Jump.
-	if Global.input_mode == Global.InputMode.GAME_MODE and \
+	if _G.inputMode == _G.InputMode.Game and \
 		Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = move_toward(velocity.y, JUMP_VELOCITY*2, SPEED*20)
 
