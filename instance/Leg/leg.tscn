@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbvlgpjk5hkof"]
+
+[ext_resource type="PackedScene" uid="uid://da8is80urjrnp" path="res://blender/leg.blend" id="1_hsev6"]
+[ext_resource type="Script" path="res://instance/Leg/IK.gd" id="2_ex3vp"]
+[ext_resource type="Script" path="res://instance/Leg/StepTargetContainer.gd" id="3_l4xkm"]
+[ext_resource type="Script" path="res://instance/Leg/LegRay.gd" id="4_drhhu"]
+
+[node name="leg" instance=ExtResource("1_hsev6")]
+
+[node name="Skeleton3D" parent="骨架" index="0"]
+bones/1/rotation = Quaternion(0.707107, 0, -0.707107, 0)
+bones/4/rotation = Quaternion(0.707107, 0, 0.707107, 0)
+
+[node name="LeftIk" type="SkeletonIK3D" parent="骨架/Skeleton3D" index="1"]
+process_priority = 1
+root_bone = &"Leg1.L"
+tip_bone = &"LegIk.L"
+use_magnet = true
+target_node = NodePath("../../LeftIkTarget")
+script = ExtResource("2_ex3vp")
+
+[node name="RightIk" type="SkeletonIK3D" parent="骨架/Skeleton3D" index="2"]
+process_priority = 1
+root_bone = &"Leg1.R"
+tip_bone = &"LegIk.R"
+use_magnet = true
+target_node = NodePath("../../RightIkTarget")
+script = ExtResource("2_ex3vp")
+
+[node name="LeftIkTarget" type="Marker3D" parent="骨架" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54232, 0.180961, 3.48765)
+
+[node name="RightIkTarget" type="Marker3D" parent="骨架" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02489, -0.913126, 4.6865)
+
+[node name="StepTargetContainer" type="Node3D" parent="." index="1"]
+script = ExtResource("3_l4xkm")
+
+[node name="RightRay" type="RayCast3D" parent="StepTargetContainer" index="0" node_paths=PackedStringArray("step_target")]
+script = ExtResource("4_drhhu")
+step_target = NodePath("RightStepTarget")
+
+[node name="RightStepTarget" type="Marker3D" parent="StepTargetContainer/RightRay" index="0"]
+
+[node name="LeftRay" type="RayCast3D" parent="StepTargetContainer" index="1" node_paths=PackedStringArray("step_target")]
+script = ExtResource("4_drhhu")
+step_target = NodePath("LeftStepTarget")
+
+[node name="LeftStepTarget" type="Marker3D" parent="StepTargetContainer/LeftRay" index="0"]

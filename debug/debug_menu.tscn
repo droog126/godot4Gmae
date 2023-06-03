@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://djjgv2wjvho5a"]
+
+[ext_resource type="Script" path="res://debug/DebugMenu.gd" id="1_kjv7s"]
+[ext_resource type="Script" path="res://addons/godot-console/scripts/console_container.gd" id="2_8nnn6"]
+[ext_resource type="Script" path="res://debug/Info.gd" id="3_xko42"]
+
+[node name="DebugMenu" type="CanvasLayer"]
+script = ExtResource("1_kjv7s")
+
+[node name="Opertor" type="Panel" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 644.0
+
+[node name="OptionButton" type="OptionButton" parent="Opertor"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 216.0
+offset_bottom = 48.0
+
+[node name="Cmd" type="Panel" parent="."]
+visible = false
+offset_right = 1146.0
+offset_bottom = 644.0
+
+[node name="ConsoleContainer" type="VBoxContainer" parent="Cmd"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 643.0
+script = ExtResource("2_8nnn6")
+
+[node name="Info" type="Panel" parent="."]
+offset_left = -1.0
+offset_right = 185.0
+offset_bottom = 181.0
+script = ExtResource("3_xko42")
+
+[node name="debugMenuStatus" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 92.0
+offset_right = 61.0
+offset_bottom = 115.0
+
+[node name="viewpointStatus" type="Label" parent="Info"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 24.0
+offset_right = 74.0
+offset_bottom = 53.0
+text = "你好"
+
+[connection signal="item_selected" from="Opertor/OptionButton" to="." method="_on_option_button_item_selected"]

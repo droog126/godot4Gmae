@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ybqighpt4m56"]
+
+[ext_resource type="PackedScene" uid="uid://bbo644w6aym8q" path="res://blender/spider.blend" id="1_v31jt"]
+
+[node name="spider" instance=ExtResource("1_v31jt")]
+
+[node name="Body_2" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(0.325856, -6.81969e-16, -4.93657e-09, 6.44576e-16, 0.325856, -2.46828e-09, 4.93657e-09, 2.46828e-09, 0.325856, 0, 0, 0)
+bone_idx = 21
+
+[node name="Cylinder" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.325856, -4.93657e-09, 1.86968e-17, 6.44576e-16, 4.13134e-08, -0.325856, 4.93657e-09, 0.325856, 4.13134e-08, 5.28213e-09, 0.101015, -0.348666)
+bone_idx = 22

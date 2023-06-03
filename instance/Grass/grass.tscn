@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmr74lid08qnd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0mqxv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vfbjg"]
+
+[node name="grass" type="Area3D" groups=["grass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.832323, -0.102831, -29.9344)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(20.0452, 0, 0, 0, 0.34467, 0, 0, 0, 16.7309, 0, 0, 0)
+mesh = SubResource("CylinderMesh_0mqxv")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(16.731, 0, 0, 0, 0.288, 0, 0, 0, 16.731, 0, 0, 0)
+shape = SubResource("CylinderShape3D_vfbjg")

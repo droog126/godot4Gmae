@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1sgjwhq7ucqw"]
+
+[ext_resource type="Shader" path="res://instance/Cloud/cloud.gdshader" id="1_6ds0l"]
+[ext_resource type="ArrayMesh" uid="uid://boc744m8lf7n1" path="res://instance/Cloud/cloud_1.obj" id="2_atgl3"]
+[ext_resource type="Script" path="res://instance/Cloud/cloud.gd" id="3_ixyhs"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8xi3w"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1r42c"]
+seamless = true
+noise = SubResource("FastNoiseLite_8xi3w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ytd3n"]
+render_priority = 0
+shader = ExtResource("1_6ds0l")
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_1r42c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s2b7g"]
+emission_shape = 2
+emission_sphere_radius = 0.3
+direction = Vector3(0, 1, 0)
+spread = 15.0
+collision_mode = 1
+collision_friction = 0.37
+collision_bounce = 0.07
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xyltt"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.643137)
+use_particle_trails = true
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_dsd6d"]
+material = SubResource("StandardMaterial3D_xyltt")
+radius = 0.02
+radial_steps = 3
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gyaj2"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+
+[node name="cloud" type="MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_ytd3n")
+mesh = ExtResource("2_atgl3")
+script = ExtResource("3_ixyhs")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0254188, -0.229115, 0)
+amount = 100
+lifetime = 2.15
+fixed_fps = 0
+interpolate = false
+collision_base_size = 0.1
+visibility_aabb = AABB(-999, -999, -999, 999, 999, 999)
+trail_enabled = true
+trail_lifetime = 0.11
+process_material = SubResource("ParticleProcessMaterial_s2b7g")
+draw_pass_1 = SubResource("TubeTrailMesh_dsd6d")
+
+[node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
+transform = Transform3D(0.964, 0, 0, 0, 0.964, 0, 0, 0, 0.964, 0, 0, 0)
+size = Vector3(2, 1, 2)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_gyaj2")

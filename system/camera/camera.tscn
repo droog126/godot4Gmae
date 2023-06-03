@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://hw1y1xkn5tqp"]
+
+[ext_resource type="Script" path="res://system/camera/Camera3D.gd" id="1_twsog"]
+[ext_resource type="PackedScene" uid="uid://yevwnsdi83q1" path="res://Pistol.blend" id="2_xnkin"]
+[ext_resource type="Texture2D" uid="uid://b3k8vyuqbqql7" path="res://addons/kenney_particle_pack/star_07.png" id="3_scw5k"]
+[ext_resource type="Shader" path="res://shader/pixelar_stylizer.gdshader" id="4_bn2bg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_87bwt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0f4e"]
+render_priority = 0
+shader = ExtResource("4_bn2bg")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_g8itq"]
+offsets = PackedFloat32Array(0, 0.0813008)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b6xrg"]
+gradient = SubResource("Gradient_g8itq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0tufi"]
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_b6xrg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rje1n"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.992157, 0.337255, 1)
+albedo_texture = ExtResource("3_scw5k")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hc61a"]
+material = SubResource("StandardMaterial3D_rje1n")
+size = Vector2(6, 6)
+orientation = 2
+
+[node name="camera" type="Node3D"]
+script = ExtResource("1_twsog")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1.41562, 0, 0, 0, -4.37114e-08, -1.282, 0, 1, -5.60378e-08, 0, 0, -0.833644)
+visible = false
+mesh = SubResource("PlaneMesh_87bwt")
+surface_material_override/0 = SubResource("ShaderMaterial_o0f4e")
+
+[node name="firstPerson" type="Node3D" parent="Camera3D"]
+visible = false
+
+[node name="Pistol" parent="Camera3D/firstPerson" instance=ExtResource("2_xnkin")]
+transform = Transform3D(0.0589549, 0, 0, 0, 0.0589549, 0, 0, 0, 0.0607229, 0.605677, -0.54309, -1.0726)
+
+[node name="MuzzleFlash" type="GPUParticles3D" parent="Camera3D/firstPerson/Pistol"]
+transform = Transform3D(0.999998, 0, 0, 0, 0.999999, -1.19209e-07, 0, 1.19209e-07, 0.999999, 0, 0.610678, -2.38662)
+emitting = false
+amount = 1
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0tufi")
+draw_pass_1 = SubResource("PlaneMesh_hc61a")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D/firstPerson"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0026073, 0)
+visible = false
+target_position = Vector3(0, 0, -50)
+collision_mask = 2

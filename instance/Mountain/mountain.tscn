@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://6kydl457e7dx"]
+
+[ext_resource type="Script" path="res://instance/Mountain/mountain.gd" id="1_k4trm"]
+[ext_resource type="Shader" path="res://instance/Mountain/mountain_normal.gdshader" id="2_irxtr"]
+[ext_resource type="ArrayMesh" uid="uid://b4w40uhj8n1oy" path="res://instance/Mountain/mountain_source_mesh_2.obj" id="2_y0db8"]
+
+[sub_resource type="Gradient" id="Gradient_2i0sl"]
+offsets = PackedFloat32Array(0.440273)
+colors = PackedColorArray(0.14902, 0.368627, 0.164706, 1)
+
+[sub_resource type="Gradient" id="Gradient_52vc5"]
+offsets = PackedFloat32Array(0, 0.569966, 1)
+colors = PackedColorArray(0.054902, 0.65098, 0.776471, 1, 0.823529, 0.443137, 0, 1, 1, 0.270588, 0.870588, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8ccsl"]
+frequency = 0.006
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_chb5k"]
+seamless = true
+noise = SubResource("FastNoiseLite_8ccsl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7djki"]
+render_priority = 0
+shader = ExtResource("2_irxtr")
+shader_parameter/top_color = Color(0.423529, 1, 0.572549, 1)
+shader_parameter/base_color = Color(0.4, 0.196078, 0, 1)
+
+[node name="mountain" type="Node3D" node_paths=PackedStringArray("target_mesh_instance")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+script = ExtResource("1_k4trm")
+top_colors = SubResource("Gradient_2i0sl")
+base_colors = SubResource("Gradient_52vc5")
+heightmap_texture = SubResource("NoiseTexture2D_chb5k")
+source_mesh = ExtResource("2_y0db8")
+target_mesh_instance = NodePath("MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_7djki")
+mesh = ExtResource("2_y0db8")

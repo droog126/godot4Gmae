@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://gw1h18tfdj7u"]
+
+[ext_resource type="Shader" path="res://instance/Cloud/cloud.gdshader" id="1_gsr6k"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wtcbp"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x1osg"]
+seamless = true
+noise = SubResource("FastNoiseLite_wtcbp")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_gsr6k")
+shader_parameter/noise_sampler = SubResource("NoiseTexture2D_x1osg")
