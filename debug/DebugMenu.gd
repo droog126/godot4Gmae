@@ -67,3 +67,11 @@ func click_callback():
 
 
 
+func getDebugInfo():
+	var textArr = []
+	textArr.push_back(str('调试菜单状态: ',_G.menuDebug_get_text()))
+	textArr.push_back(str('相机状态: ',_G.cameraMode_get_text()))
+	textArr.push_back(str('输入状态: ',_G.inputMode_get_text()))
+	var text = Utils.joinArrayElements(textArr,'\n')
+	return text
+

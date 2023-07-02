@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 _G="*res://global/_G.gd"
 Global="*res://global/index.gd"
-GDebug="*res://debug/debug_menu.tscn"
+GDebug="*res://debug/DebugMenu.tscn"
 GCamera="*res://system/camera/camera.tscn"
 Timeline="*res://system/timeLine/timeline.tscn"
 Utils="*res://global/utils.gd"

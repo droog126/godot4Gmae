@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	pankuRegister('_G',self)
+
 
 
 ## 只存储，或者一些非常简单的逻辑，不使用该节点方法的信息
@@ -89,5 +92,21 @@ func menuDebug_get_text():
 
 
 ### gameMenu
+
+
+func pankuRegister(name, space):
+	if has_node(PankuConsole.SingletonPath):
+		var console:PankuConsole = get_node(PankuConsole.SingletonPath)
+		console.gd_exprenv.register_env(name, space)
+
+
+class debug:	
+	func getDebugInfo():
+		var textArr = []
+		textArr.push_back(str('调试菜单状态: ',_G.menuDebug_get_text()))
+		textArr.push_back(str('相机状态: ',_G.cameraMode_get_text()))
+		textArr.push_back(str('输入状态: ',_G.inputMode_get_text()))
+		var text = Utils.joinArrayElements(textArr,'\n')
+		return text
 
 
