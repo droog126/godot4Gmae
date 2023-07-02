@@ -52,6 +52,8 @@ enum CameraMode {
 
 func cameraMode_add_circle():
 	cameraMode = (cameraMode + 1) % CameraMode.size()
+	if cameraMode == CameraMode.Debug :
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func cameraMode_get_text():
 	return cameraModeMap[cameraMode]
@@ -78,7 +80,9 @@ func menuDebug_add_circle():
 		inputMode = InputMode.Game
 	else:
 		inputMode = InputMode.Menu
-		
+		cameraMode = CameraMode.Static
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func menuDebug_get_text():
 	return menuDebugModeMap[menuDebugMode]

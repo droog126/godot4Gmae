@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var opertor = $Opertor
 
 var MenuDebugMode = _G.MenuDebugMode
-var opertorNodes:  Array = []
+var SelectOptions:  Array = []
 
 func _input(event):
 	if event.is_action_pressed('tab'):
@@ -29,18 +29,19 @@ func CloseMenu():
 
 func DebugMenuOpertorInit():
 	opertor.visible = true
-	var options = []
+
+	SelectOptions.clear()
 	option_button.clear()
 	var player_nodes = get_tree().get_nodes_in_group("player")
 	var debug_nodes = get_tree().get_nodes_in_group("debug")
-	options += player_nodes
-	options += debug_nodes
-	print('here',options)
+	SelectOptions += player_nodes
+	SelectOptions += debug_nodes
+
 	
-	for i in range(options.size()):
-		var node = options[i]
+	for i in range(SelectOptions.size()):
+		var node = SelectOptions[i]
 		var index = i
-		option_button.add_item(str(node.name,'-',index,'-',node.get_groups()),index)
+		option_button.add_item(str(node.name,'-',node.get_groups()),index)
 
 	option_button.select(-1)
 
@@ -50,7 +51,7 @@ func DebugMenuOpertorInit():
 
 
 func _on_option_button_item_selected(index):
-	var selectedNode = opertorNodes[index];
+	var selectedNode = SelectOptions[index];
 	GCamera.cameraTarget = selectedNode;
 	pass 
 
