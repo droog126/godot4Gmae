@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://instance/Leg/StepTargetContainer.gd" id="3_l4xkm"]
 [ext_resource type="Script" path="res://instance/Leg/LegRay.gd" id="4_drhhu"]
 
-[node name="leg" instance=ExtResource("1_hsev6")]
+[node name="leg" groups=["debug"] instance=ExtResource("1_hsev6")]
 
 [node name="Skeleton3D" parent="骨架" index="0"]
 bones/1/rotation = Quaternion(0.707107, 0, -0.707107, 0)

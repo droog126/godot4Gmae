@@ -1,5 +1,6 @@
 extends Node3D
 @onready var camera = $Camera3D
+@onready var camer_ray = $Camera3D/CamerRay
 
 
 
@@ -15,9 +16,11 @@ func debug():
 	if Input.is_action_just_pressed('f2'):
 		_G.cameraMode_add_circle() 
 		
-		
+
+	
 func _input(event):
 	debug()
+
 	if _G.cameraMode == CameraMode.Static:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		pass
@@ -92,3 +95,26 @@ func _process(delta):
 
 		pass
 
+
+
+func _physics_process(delta):
+	pass
+	var pos = Utils.get_mouse_pos()
+	var result = Utils.get_ray_collision(pos)
+	var node = get_node_or_null('/root/main/common/level/level_main/line')
+	if node:
+		var ray_origin = camera.project_ray_origin(pos)
+		var ray_direction = camera.project_ray_normal(pos)
+		var ray_end = ray_origin + ray_direction * 100
+		
+		Utils.immediate_mesh_update(node.mesh,ray_origin,ray_end)
+#		ImmediateMesh
+#		node.mesh.surface_set_vertex(0, ray_origin) # Update the first vertex
+#		node.mesh.surface_set_vertex(1, ray_end) # Update the second vertex
+#		node.mesh.surface_update_region(0, 0, 2) # Update the mesh region
+#		if Input.is_action_just_pressed("mouse_left"):
+#			var camera = Utils.get_camera()
+#
+#			var line = Utils.line(ray_origin,ray_end)
+#			print('line',line.mesh)
+#			print('result',result)

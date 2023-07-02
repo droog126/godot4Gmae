@@ -5,7 +5,7 @@
 extends EditorPlugin
 
 
-const AUTOLOAD_NAME = "Console"
+const AUTOLOAD_NAME = "GDConsole"
 const AUTOLOAD_PATH = "res://addons/godot-console/scripts/console.gd"
 
 const CONSOLE_CONTAINER = "ConsoleContainer"

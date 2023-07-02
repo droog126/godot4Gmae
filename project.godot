@@ -22,13 +22,13 @@ Global="*res://global/index.gd"
 GDebug="*res://debug/debug_menu.tscn"
 GCamera="*res://system/camera/camera.tscn"
 Timeline="*res://system/timeLine/timeline.tscn"
-Log="*res://addons/godot-logger/scripts/logger.gd"
-Console="*res://addons/godot-console/scripts/console.gd"
 Utils="*res://global/utils.gd"
+ConsoleS="*res://addons/godot-console/scripts/console.gd"
+Log="*res://addons/godot-logger/scripts/logger.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-logger/plugin.cfg", "res://addons/godot-console/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-logger/plugin.cfg")
 
 [input]
 

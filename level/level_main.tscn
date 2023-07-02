@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdmrt3r2dnxoy"]
+[gd_scene load_steps=8 format=3 uid="uid://cdmrt3r2dnxoy"]
 
 [ext_resource type="PackedScene" uid="uid://bqgtfec2cvgar" path="res://blender/demo.blend" id="1_r4tdo"]
 [ext_resource type="PackedScene" uid="uid://6kydl457e7dx" path="res://instance/Mountain/mountain.tscn" id="2_f4x7o"]
 [ext_resource type="PackedScene" uid="uid://b1sgjwhq7ucqw" path="res://instance/Cloud/cloud.tscn" id="3_odr5e"]
 [ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://assets/sky/blue_sky.tres" id="4_7aamr"]
 [ext_resource type="PackedScene" uid="uid://bmr74lid08qnd" path="res://instance/Grass/grass.tscn" id="5_mji6y"]
+[ext_resource type="PackedScene" uid="uid://ikdmlouwje0o" path="res://line.tscn" id="7_1648h"]
 
 [sub_resource type="Environment" id="Environment_kbtbc"]
 background_mode = 2
@@ -15,7 +16,7 @@ tonemap_white = 2.6
 fog_light_color = Color(0.501961, 0.580392, 0.45098, 1)
 fog_light_energy = 0.1
 
-[node name="level_main" type="Node"]
+[node name="level_main" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.0980716, -0.995014, -0.0181201, -0.405712, 0.0233489, 0.913703, -0.908724, 0.0969598, -0.405979, 54.9202, 40.6502, 1)
@@ -43,3 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.394, 0.321066, -9.88374)
 
 [node name="grass" parent="." instance=ExtResource("5_mji6y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4654, -1.90735e-06, 18.7533)
+
+[node name="line" parent="." instance=ExtResource("7_1648h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05957, 0)

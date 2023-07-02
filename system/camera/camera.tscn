@@ -52,7 +52,6 @@ mesh = SubResource("PlaneMesh_87bwt")
 surface_material_override/0 = SubResource("ShaderMaterial_o0f4e")
 
 [node name="firstPerson" type="Node3D" parent="Camera3D"]
-visible = false
 
 [node name="Pistol" parent="Camera3D/firstPerson" instance=ExtResource("2_xnkin")]
 transform = Transform3D(0.0589549, 0, 0, 0, 0.0589549, 0, 0, 0, 0.0607229, 0.605677, -0.54309, -1.0726)
@@ -67,7 +66,10 @@ process_material = SubResource("ParticleProcessMaterial_0tufi")
 draw_pass_1 = SubResource("PlaneMesh_hc61a")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D/firstPerson"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0026073, 0)
 visible = false
 target_position = Vector3(0, 0, -50)
 collision_mask = 2
+
+[node name="CamerRay" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -500)
+debug_shape_thickness = 1

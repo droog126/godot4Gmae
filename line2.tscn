@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cish6l6estjpa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kty82"]
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_us65v"]
+
+[node name="15" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_kty82")
+mesh = SubResource("ImmediateMesh_us65v")
