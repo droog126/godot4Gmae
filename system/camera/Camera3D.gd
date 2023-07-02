@@ -32,7 +32,7 @@ func _input(event):
 			_G.cameraMode = CameraMode.Static
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			
-			Log.debug(str('第三人称，没找到附身对象'))
+#			Log.debug(str('第三人称，没找到附身对象'))
 
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -50,7 +50,7 @@ func _input(event):
 		if _G.cameraTarget == null:
 			_G.cameraMode = CameraMode.Static
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			Log.debug(str('第一人称，没找到附身对象'))
+#			Log.debug(str('第一人称，没找到附身对象'))
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		

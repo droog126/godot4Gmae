@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://djjgv2wjvho5a"]
+[gd_scene load_steps=3 format=3 uid="uid://djjgv2wjvho5a"]
 
 [ext_resource type="Script" path="res://debug/DebugMenu.gd" id="1_kjv7s"]
-[ext_resource type="Script" path="res://addons/godot-console/scripts/console_container.gd" id="2_8nnn6"]
 [ext_resource type="Script" path="res://debug/Info.gd" id="3_xko42"]
 
 [node name="DebugMenu" type="CanvasLayer"]
@@ -19,17 +18,6 @@ offset_left = 8.0
 offset_top = 6.0
 offset_right = 216.0
 offset_bottom = 48.0
-
-[node name="Cmd" type="Panel" parent="."]
-visible = false
-offset_right = 1146.0
-offset_bottom = 644.0
-
-[node name="ConsoleContainer" type="VBoxContainer" parent="Cmd"]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 643.0
-script = ExtResource("2_8nnn6")
 
 [node name="Info" type="Panel" parent="."]
 offset_left = 997.0

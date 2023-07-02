@@ -1,7 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://bbtb7okvunwrk"]
+[gd_scene load_steps=27 format=3 uid="uid://bbtb7okvunwrk"]
 
 [ext_resource type="Script" path="res://instance/Player/player.gd" id="1_8dwlk"]
-[ext_resource type="PackedScene" uid="uid://yevwnsdi83q1" path="res://Pistol.blend" id="2_52pl3"]
 [ext_resource type="Texture2D" uid="uid://b3k8vyuqbqql7" path="res://addons/kenney_particle_pack/star_07.png" id="3_ygxv6"]
 [ext_resource type="Shader" path="res://shader/pixelar_stylizer.gdshader" id="4_5wuwd"]
 [ext_resource type="Script" path="res://instance/Player/PlayerInput.gd" id="5_84t3x"]
@@ -87,6 +86,18 @@ _data = {
 "walk": SubResource("Animation_h212f")
 }
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_7auob"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xqqu"]
+render_priority = 0
+shader = ExtResource("4_5wuwd")
+shader_parameter/shadows_enabled = true
+shader_parameter/highlights_enabled = true
+shader_parameter/shadow_strength = 0.4
+shader_parameter/highlight_strength = 0.1
+shader_parameter/highlight_color = Color(1, 1, 1, 1)
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Gradient" id="Gradient_oog3b"]
 offsets = PackedFloat32Array(0, 0.0813008)
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
@@ -109,18 +120,6 @@ albedo_texture = ExtResource("3_ygxv6")
 material = SubResource("StandardMaterial3D_s183q")
 size = Vector2(6, 6)
 orientation = 2
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7auob"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xqqu"]
-render_priority = 0
-shader = ExtResource("4_5wuwd")
-shader_parameter/shadows_enabled = true
-shader_parameter/highlights_enabled = true
-shader_parameter/shadow_strength = 0.4
-shader_parameter/highlight_strength = 0.1
-shader_parameter/highlight_color = Color(1, 1, 1, 1)
-shader_parameter/shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_brax4"]
 length = 0.001
@@ -315,18 +314,6 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395045, -0.0966287)
 visible = false
 
-[node name="Pistol" parent="Camera3D" instance=ExtResource("2_52pl3")]
-transform = Transform3D(0.0589549, 0, 0, 0, 0.0589549, 0, 0, 0, 0.0607229, 0.605677, -0.54309, -1.0726)
-
-[node name="MuzzleFlash" type="GPUParticles3D" parent="Camera3D/Pistol"]
-transform = Transform3D(0.999998, 0, 0, 0, 0.999999, -1.19209e-07, 0, 1.19209e-07, 0.999999, 0, 0.610678, -2.38662)
-emitting = false
-amount = 1
-one_shot = true
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_2744k")
-draw_pass_1 = SubResource("PlaneMesh_amv8c")
-
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0026073, 0)
 visible = false
@@ -338,6 +325,15 @@ transform = Transform3D(1.41562, 0, 0, 0, -4.37114e-08, -1.282, 0, 1, -5.60378e-
 visible = false
 mesh = SubResource("PlaneMesh_7auob")
 surface_material_override/0 = SubResource("ShaderMaterial_3xqqu")
+
+[node name="Camera3D@Pistol@MuzzleFlash" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.999998, 0, 0, 0, 0.999999, -1.19209e-07, 0, 1.19209e-07, 0.999999, 0, 0.610678, -2.38662)
+emitting = false
+amount = 1
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_2744k")
+draw_pass_1 = SubResource("PlaneMesh_amv8c")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "move"

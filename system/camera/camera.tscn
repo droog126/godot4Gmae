@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://system/camera/Camera3D.gd" id="1_twsog"]
 [ext_resource type="PackedScene" uid="uid://yevwnsdi83q1" path="res://Pistol.blend" id="2_xnkin"]
-[ext_resource type="Texture2D" uid="uid://b3k8vyuqbqql7" path="res://addons/kenney_particle_pack/star_07.png" id="3_scw5k"]
 [ext_resource type="Shader" path="res://shader/pixelar_stylizer.gdshader" id="4_bn2bg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_87bwt"]
@@ -28,12 +27,15 @@ gradient = SubResource("Gradient_g8itq")
 gravity = Vector3(0, 0, 0)
 color_ramp = SubResource("GradientTexture1D_b6xrg")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u2ji2"]
+load_path = "res://.godot/imported/star_07.png-270a23685f71e687b5f82d6e0794ffda.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rje1n"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.992157, 0.337255, 1)
-albedo_texture = ExtResource("3_scw5k")
+albedo_texture = SubResource("CompressedTexture2D_u2ji2")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hc61a"]
 material = SubResource("StandardMaterial3D_rje1n")
@@ -52,7 +54,6 @@ mesh = SubResource("PlaneMesh_87bwt")
 surface_material_override/0 = SubResource("ShaderMaterial_o0f4e")
 
 [node name="firstPerson" type="Node3D" parent="Camera3D"]
-visible = false
 
 [node name="Pistol" parent="Camera3D/firstPerson" instance=ExtResource("2_xnkin")]
 transform = Transform3D(0.0589549, 0, 0, 0, 0.0589549, 0, 0, 0, 0.0607229, 0.605677, -0.54309, -1.0726)

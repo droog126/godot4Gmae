@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dha8jok0800wq"]
+[gd_scene load_steps=6 format=3 uid="uid://dha8jok0800wq"]
 
 [ext_resource type="Script" path="res://server/server.gd" id="1_3dcay"]
-[ext_resource type="Texture2D" uid="uid://dupquathnjtns" path="res://addons/kenney_particle_pack/circle_05.png" id="2_4qhs4"]
 [ext_resource type="Script" path="res://common/common.gd" id="3_v4t64"]
-[ext_resource type="PackedScene" uid="uid://bbvlgpjk5hkof" path="res://instance/Leg/leg.tscn" id="4_1af86"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7j52t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kae4"]
 bg_color = Color(0.835294, 0.835294, 0.835294, 0)
@@ -74,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.03, 0.03)
 pivot_offset = Vector2(576, 324)
-texture = ExtResource("2_4qhs4")
+texture = SubResource("CompressedTexture2D_7j52t")
 stretch_mode = 5
 
 [node name="HealthBar" type="ProgressBar" parent="LoginSystem/HUD"]
@@ -98,13 +98,6 @@ show_percentage = false
 script = ExtResource("3_v4t64")
 
 [node name="level" type="Node" parent="common"]
-
-[node name="leg" parent="common" instance=ExtResource("4_1af86")]
-
-[node name="levelSpawner" type="MultiplayerSpawner" parent="common"]
-_spawnable_scenes = PackedStringArray("res://level/level_main.tscn")
-spawn_path = NodePath("../level")
-spawn_limit = 1
 
 [node name="players" type="Node" parent="common"]
 

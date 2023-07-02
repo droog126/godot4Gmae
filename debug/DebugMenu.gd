@@ -3,7 +3,7 @@ extends CanvasLayer
 
 @onready var debug_menu = $"."
 @onready var option_button = $Opertor/OptionButton
-@onready var cmd = $Cmd
+
 @onready var opertor = $Opertor
 
 var MenuDebugMode = _G.MenuDebugMode
@@ -24,7 +24,7 @@ func _ready():
 
 func CloseMenu():
 	opertor.visible = false
-	cmd.visible = false
+
 
 
 func DebugMenuOpertorInit():
@@ -52,12 +52,12 @@ func DebugMenuOpertorInit():
 
 func _on_option_button_item_selected(index):
 	var selectedNode = SelectOptions[index];
-	GCamera.cameraTarget = selectedNode;
+	_G.cameraTarget = selectedNode;
 	pass 
 
 
 func CmdMenuInit():
-	cmd.visible = true
+
 	pass
 	
 func click_callback():

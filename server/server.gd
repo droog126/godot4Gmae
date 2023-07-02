@@ -11,7 +11,7 @@ const PORT = 9999
 var enet_peer = ENetMultiplayerPeer.new()
 
 func _ready():
-	Log.info('游戏开始，我是mian')
+#	Log.info('游戏开始，我是mian')
 	if DisplayServer.get_name() == "headless":
 		_on_host_button_pressed.call_deferred()
 
@@ -26,7 +26,7 @@ func _on_host_button_pressed():
 	enet_peer.create_server(PORT)
 	multiplayer.multiplayer_peer = enet_peer
 
-	Log.info(str('我开启了服务器'))
+#	Log.info(str('我开启了服务器'))
 	multiplayer.peer_connected.connect(player_connect)
 	multiplayer.peer_disconnected.connect(player_disconnect)
 	
@@ -39,7 +39,7 @@ func _on_host_button_pressed():
 		add_player(1)
 
 func player_connect(peer_id):
-	Log.info(str('有玩家连接服务器',peer_id))
+#	Log.info(str('有玩家连接服务器',peer_id))
 	add_player(peer_id)
 #	rpc("register_player", Global.player_info)
 #	Global.rpc("register_player", Global.player_info)
@@ -49,13 +49,13 @@ func player_connect(peer_id):
 	
 
 func player_disconnect(peer_id):
-	Log.info(str('有玩家离开了服务器',peer_id))
+#	Log.info(str('有玩家离开了服务器',peer_id))
 	del_player(peer_id)
 	
 	
 	
 func add_player(id: int):
-	Log.debug(str('添加一名玩家',id))
+#	Log.debug(str('添加一名玩家',id))
 	var character = preload("res://instance/Player/player.tscn").instantiate()
 	character.player = id
 	var pos := Vector2.from_angle(randf() * 2 * PI)

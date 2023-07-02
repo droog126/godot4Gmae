@@ -4,7 +4,7 @@ signal health_changed(health_value)
 
 @onready var camera = $Camera3D
 @onready var anim_player = $AnimationPlayer
-@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
+#@onready var muzzle_flash = $Camera3D/Pistol/MuzzleFlash
 @onready var raycast = $Camera3D/RayCast3D
 @onready var people_3 = $people3
 @onready var animation_player = $people3/AnimationPlayer
@@ -27,8 +27,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 
 func _enter_tree():
-	Log.debug(str('enter_tree',position))
+#	Log.debug(str('enter_tree',position))
 #	set_multiplayer_authority(str(name).to_int())
+	pass
 	
 func _ready():
 #	set_multiplayer_authority(str(name).to_int())
@@ -96,8 +97,8 @@ func _physics_process(_delta):
 func play_shoot_effects():
 	anim_player.stop()
 	anim_player.play('shoot')
-	muzzle_flash.restart()
-	muzzle_flash.emitting = true
+#	muzzle_flash.restart()
+#	muzzle_flash.emitting = true
 
 @rpc("any_peer")
 func receive_damage():
