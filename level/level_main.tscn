@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdmrt3r2dnxoy"]
+[gd_scene load_steps=8 format=3 uid="uid://cdmrt3r2dnxoy"]
 
 [ext_resource type="PackedScene" uid="uid://6kydl457e7dx" path="res://instance/Mountain/mountain.tscn" id="2_f4x7o"]
 [ext_resource type="PackedScene" uid="uid://b1sgjwhq7ucqw" path="res://instance/Cloud/cloud.tscn" id="3_odr5e"]
 [ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://assets/sky/blue_sky.tres" id="4_7aamr"]
 [ext_resource type="PackedScene" uid="uid://bmr74lid08qnd" path="res://instance/Grass/grass.tscn" id="5_mji6y"]
 [ext_resource type="PackedScene" uid="uid://bqgtfec2cvgar" path="res://blender/demo.blend" id="5_saw63"]
+[ext_resource type="PackedScene" uid="uid://bbvlgpjk5hkof" path="res://instance/Leg/leg.tscn" id="6_jvfif"]
 
 [sub_resource type="Environment" id="Environment_kbtbc"]
 background_mode = 2
@@ -43,3 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4654, -1.90735e-06, 18.753
 
 [node name="demo" parent="." instance=ExtResource("5_saw63")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.187981, 0)
+
+[node name="leg" parent="." instance=ExtResource("6_jvfif")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.775658, 0)

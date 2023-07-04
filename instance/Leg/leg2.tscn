@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbvlgpjk5hkof"]
+[gd_scene load_steps=10 format=3 uid="uid://b8dhmfrvdmhmd"]
 
-[ext_resource type="Script" path="res://instance/Leg/IK.gd" id="2_ex3vp"]
-[ext_resource type="Script" path="res://instance/Leg/IKTarget.gd" id="3_j0hwf"]
-[ext_resource type="Script" path="res://instance/Leg/StepTargetContainer.gd" id="3_l4xkm"]
-[ext_resource type="Script" path="res://instance/Leg/LegRay.gd" id="4_drhhu"]
+[ext_resource type="Script" path="res://instance/Leg/leg2.cs" id="1_4cpxy"]
+[ext_resource type="Script" path="res://instance/Leg/IK.gd" id="1_4x3hp"]
+[ext_resource type="Script" path="res://instance/Leg/IKTarget.gd" id="2_kakx4"]
+[ext_resource type="Script" path="res://instance/Leg/StepTargetContainer.gd" id="3_nq7id"]
+[ext_resource type="Script" path="res://instance/Leg/LegRay.gd" id="4_vhu7x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dinjp"]
+albedo_color = Color(0.372549, 0.513726, 1, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6ug6m"]
 resource_name = "leg-cacbf23af7b21c5c1b03481c7ac3e7dd_柱体"
@@ -53,60 +55,63 @@ bind/6/pose = Transform3D(7.54979e-08, 0, 1, 0, -1, 0, 1, 0, -7.54979e-08, 0.016
 [sub_resource type="SphereMesh" id="SphereMesh_neqxe"]
 
 [node name="leg" type="Node3D"]
+script = ExtResource("1_4cpxy")
 
 [node name="modal" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57942, 0.0166078)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0754905, -4.79095, 0.0166078)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="modal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.30732, -1.84232, 6.83533)
+top_level = true
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.02326e-08, 3.54041, -0.0166078)
-bones/0/enabled = true
+bones/0/enabled = false
 bones/0/position = Vector3(5.02326e-08, 3.54041, -0.0166078)
 bones/0/rotation = Quaternion(0, 0, 0, 1)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Leg1.L"
 bones/1/parent = 0
 bones/1/rest = Transform3D(0, 0, -1, 0, -1, 0, -1, 0, 0, -1.15505, 0.088469, -0.0169281)
-bones/1/enabled = true
-bones/1/position = Vector3(-1.15505, 0.088469, 0.315487)
+bones/1/enabled = false
+bones/1/position = Vector3(0.000474975, 0.000474975, 0.000474975)
 bones/1/rotation = Quaternion(0.707107, 0, -0.707107, 0)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Leg2.L"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, 1, -1.97282e-10, 2.62407, 7.39951e-10)
-bones/2/enabled = true
-bones/2/position = Vector3(5.85829, 1.90081, 0.000474975)
+bones/2/enabled = false
+bones/2/position = Vector3(0.000474975, 0.000474975, 0.000474975)
 bones/2/rotation = Quaternion(0, 1.58933e-08, 0, 1)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "LegIk.L"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 3.40719e-10, 3.04366, 1.27804e-09)
-bones/3/enabled = true
-bones/3/position = Vector3(0.799927, 4.82163, 2.67045e-08)
-bones/3/rotation = Quaternion(0, 3.55271e-15, 0, 1)
+bones/3/enabled = false
+bones/3/position = Vector3(0.000474975, 0.000474975, 0.000474975)
+bones/3/rotation = Quaternion(0, 6.51926e-09, 0, 1)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Leg1.R"
 bones/4/parent = 0
 bones/4/rest = Transform3D(0, 0, 1, 0, -1, 0, 1, 0, 0, 1.15505, 0.088469, -0.0169281)
-bones/4/enabled = true
-bones/4/position = Vector3(1.15505, 0.088469, -0.0169281)
+bones/4/enabled = false
+bones/4/position = Vector3(0.000474975, 0.000474975, 0.000474975)
 bones/4/rotation = Quaternion(0.707107, 0, 0.707107, 0)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Leg2.R"
 bones/5/parent = 4
 bones/5/rest = Transform3D(1, 0, -3.17865e-08, 0, 1, 0, 3.17865e-08, 0, 1, 1.97282e-10, 2.62407, 7.39951e-10)
-bones/5/enabled = false
-bones/5/position = Vector3(0.000474975, 0.000474975, 0.000474975)
-bones/5/rotation = Quaternion(0, -1.58933e-08, 0, 1)
-bones/5/scale = Vector3(1, 1, 1)
+bones/5/enabled = true
+bones/5/position = Vector3(-7.65953, -0.392108, -0.670584)
+bones/5/rotation = Quaternion(0.310656, -0.491136, 0.425102, 0.693949)
+bones/5/scale = Vector3(0.99998, 0.99998, 0.99998)
 bones/6/name = "LegIk.R"
 bones/6/parent = 5
 bones/6/rest = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, -3.40719e-10, 3.04366, 1.27804e-09)
 bones/6/enabled = true
-bones/6/position = Vector3(-3.40719e-10, 3.04366, 1.27804e-09)
-bones/6/rotation = Quaternion(0, -3.55271e-15, 0, 1)
-bones/6/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(0.519975, 5.94576, -0.29342)
+bones/6/rotation = Quaternion(-0.22039, 0.241021, -0.344092, 0.880305)
+bones/6/scale = Vector3(1.00048, 1.00048, 1.00048)
 
 [node name="mesh" type="MeshInstance3D" parent="modal/Skeleton3D"]
 mesh = SubResource("ArrayMesh_6ug6m")
@@ -114,11 +119,11 @@ skin = SubResource("Skin_jblpo")
 
 [node name="LeftIk" type="SkeletonIK3D" parent="modal/Skeleton3D"]
 process_priority = 1
-root_bone = &"Leg2.L"
-tip_bone = &"Leg2.R"
-override_tip_basis = false
+root_bone = &"Leg1.L"
+tip_bone = &"LegIk.L"
 target_node = NodePath("../../LeftIkTarget")
-script = ExtResource("2_ex3vp")
+max_iterations = 203
+script = ExtResource("1_4x3hp")
 
 [node name="RightIk" type="SkeletonIK3D" parent="modal/Skeleton3D"]
 process_priority = 1
@@ -126,32 +131,31 @@ root_bone = &"Leg1.R"
 tip_bone = &"LegIk.R"
 override_tip_basis = false
 target_node = NodePath("../../RightIkTarget")
-script = ExtResource("2_ex3vp")
+script = ExtResource("1_4x3hp")
 
 [node name="LeftIkTarget" type="Marker3D" parent="modal" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.77268, 0)
-script = ExtResource("3_j0hwf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72681, -0.856752, 1.018)
+script = ExtResource("2_kakx4")
 step_target = NodePath("../../StepTargetContainer/LeftRay/LeftStepTarget")
 adjacent_target = NodePath("../RightIkTarget")
 
 [node name="RightIkTarget" type="Marker3D" parent="modal" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76989, -0.725767, -2.02726)
-script = ExtResource("3_j0hwf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.89156, -0.725767, -2.02726)
+script = ExtResource("2_kakx4")
 step_target = NodePath("../../StepTargetContainer/RightRay/RightStepTarget")
 adjacent_target = NodePath("../LeftIkTarget")
 
-[node name="StepTargetContainer" type="Node3D" parent="."]
-script = ExtResource("3_l4xkm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StepTargetContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.95163, 0, 0)
+[node name="body" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_neqxe")
+
+[node name="StepTargetContainer" type="Node3D" parent="."]
+script = ExtResource("3_nq7id")
 
 [node name="RightRay" type="RayCast3D" parent="StepTargetContainer" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18397, 0, 0)
 target_position = Vector3(0, -50, 0)
 collide_with_areas = true
-script = ExtResource("4_drhhu")
+script = ExtResource("4_vhu7x")
 step_target = NodePath("RightStepTarget")
 
 [node name="RightStepTarget" type="Marker3D" parent="StepTargetContainer/RightRay"]
@@ -159,7 +163,7 @@ step_target = NodePath("RightStepTarget")
 [node name="LeftRay" type="RayCast3D" parent="StepTargetContainer" node_paths=PackedStringArray("step_target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 target_position = Vector3(0, -100, 0)
-script = ExtResource("4_drhhu")
+script = ExtResource("4_vhu7x")
 step_target = NodePath("LeftStepTarget")
 
 [node name="LeftStepTarget" type="Marker3D" parent="StepTargetContainer/LeftRay"]
