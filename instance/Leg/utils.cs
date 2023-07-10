@@ -31,3 +31,16 @@ public class WalkingAnimation
     }
 
 }
+
+
+public static class MathUtils
+{
+    public static Vector3 GetPositionInDirection(Vector3 startPoint, Vector3 direction, float distance)
+    {
+        Vector3 normalizedDirection = direction.Normalized();
+        Vector3 displacement = normalizedDirection * distance;
+        Vector3 newPosition = startPoint + displacement;
+        return newPosition;
+    }
+
+}

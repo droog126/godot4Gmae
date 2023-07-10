@@ -1,0 +1,14 @@
+{
+  "profiles": {
+	"Mygame": {
+	  "commandName": "Project"
+	},
+	"配置文件 1": {
+	  "commandName": "Executable",
+	  "executablePath": "C:\\360极速浏览器X下载\\Godot_v4.1-stable_mono_win64\\Godot_v4.1-stable_mono_win64\\Godot_v4.1-stable_mono_win64.exe",
+	  "commandLineArgs": "--path,--verbose",
+	  "workingDirectory": ".",
+	  "nativeDebugging": true
+	}
+  }
+}

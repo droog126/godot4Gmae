@@ -1,7 +1,7 @@
 class_name PankuConfig
 
 const FILE_NAME = "panku_config.cfg"
-const FILE_PATH = "res://addons/panku_console/" + FILE_NAME
+const FILE_PATH = "user://" + FILE_NAME
 
 static func set_config(config:Dictionary):
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)

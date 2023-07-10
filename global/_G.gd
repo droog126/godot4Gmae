@@ -57,7 +57,9 @@ func cameraMode_add_circle():
 	cameraMode = (cameraMode + 1) % CameraMode.size()
 	if cameraMode == CameraMode.Debug :
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	if !cameraTarget:
+		cameraTarget = get_tree().get_nodes_in_group("debug")[0]
+		
 func cameraMode_get_text():
 	return cameraModeMap[cameraMode]
 
@@ -101,7 +103,7 @@ func pankuRegister(name, space):
 
 
 class debug:	
-	func getDebugInfo():
+	static func getDebugInfo():
 		var textArr = []
 		textArr.push_back(str('调试菜单状态: ',_G.menuDebug_get_text()))
 		textArr.push_back(str('相机状态: ',_G.cameraMode_get_text()))

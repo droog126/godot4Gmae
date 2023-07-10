@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdgigf3ys0oos"]
+
+[ext_resource type="PackedScene" uid="uid://b8dhmfrvdmhmd" path="res://instance/Leg/leg2.tscn" id="1_uhm3e"]
+
+[node name="dev" type="Node3D"]
+
+[node name="leg" parent="." groups=["debug"] instance=ExtResource("1_uhm3e")]
