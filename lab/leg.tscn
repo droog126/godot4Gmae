@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b18fotqpjnwh6"]
 
-[ext_resource type="PackedScene" uid="uid://b5cf2n6st5m7n" path="res://blender/cur.blend" id="1_jgj40"]
+[ext_resource type="PackedScene" uid="uid://b5cf2n6st5m7n" path="res://blender草稿/cur.blend" id="1_jgj40"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7h002"]
 
@@ -9,15 +9,7 @@ albedo_color = Color(0.803922, 0.776471, 0.894118, 1)
 
 [node name="cur" instance=ExtResource("1_jgj40")]
 
-[node name="Skeleton3D" parent="骨架" index="0"]
-transform = Transform3D(0.999998, 0, 0, 0, 0.999998, 0, 0, 0, 0.999998, 0, -0.0187104, -0.00139316)
-
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="骨架/Skeleton3D" index="1"]
-transform = Transform3D(1, -7.54979e-08, 7.54979e-08, 7.54979e-08, 1, 5.69303e-15, -7.54979e-08, 6.90565e-18, 1, -1.1745e-07, 2.55567, 1.7647e-17)
-bone_name = "Bone.003"
-bone_idx = 2
-
-[node name="Tip" type="Node3D" parent="骨架/Skeleton3D/BoneAttachment3D" index="0"]
+[node name="骨架@Skeleton3D@BoneAttachment3D@Tip" type="Node3D" parent="." index="0"]
 transform = Transform3D(1, 4.26326e-14, -4.26326e-14, -4.26326e-14, 1, -4.52468e-22, 4.26326e-14, -1.20644e-21, 1, 8.54576e-08, 1.13192, 0)
 
 [node name="target" type="Node3D" parent="." index="1"]
@@ -26,3 +18,8 @@ transform = Transform3D(0.135033, 0, 0, 0, 0.158438, 0, 0, 0, 0.158228, -0.14735
 [node name="MeshInstance3D" type="MeshInstance3D" parent="target" index="0"]
 mesh = SubResource("SphereMesh_7h002")
 surface_material_override/0 = SubResource("StandardMaterial3D_2odjx")
+
+[node name="骨架@Skeleton3D@BoneAttachment3D" type="BoneAttachment3D" parent="." index="3"]
+transform = Transform3D(1, -7.54979e-08, 7.54979e-08, 7.54979e-08, 1, 5.69303e-15, -7.54979e-08, 6.90565e-18, 1, -1.1745e-07, 2.55567, 1.7647e-17)
+bone_name = "Bone.003"
+bone_idx = 2

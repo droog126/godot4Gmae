@@ -82,8 +82,12 @@ func _process(delta):
 				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				
 	elif _G.cameraMode == CameraMode.ThirdPerson:
-		global_position = _G.cameraTarget.global_position + _G.cameraTarget.transform.basis.z * 2 + Vector3(0,2,0)
-		rotation.y = _G.cameraTarget.rotation.y
+		global_position = _G.cameraTarget.global_position + Vector3(0,1,1) * 5
+		
+		
+		look_at(_G.cameraTarget.global_position);
+
+
 		
 		pass
 	elif _G.cameraMode == CameraMode.FirstPerson:

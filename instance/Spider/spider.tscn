@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ybqighpt4m56"]
 
-[ext_resource type="PackedScene" uid="uid://bbo644w6aym8q" path="res://blender/spider.blend" id="1_v31jt"]
+[ext_resource type="PackedScene" uid="uid://bbo644w6aym8q" path="res://blender草稿/spider.blend" id="1_v31jt"]
 
 [node name="spider" instance=ExtResource("1_v31jt")]
 

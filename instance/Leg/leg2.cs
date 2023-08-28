@@ -5,7 +5,7 @@ public partial class leg2 : Node3D
 {
 	// Called when the node enters the scene tree for the first time.
 	//[Export]
-	public float moveSpeed = 10.0f;
+	public float moveSpeed = 3.0f;
 
 	private Node3D leg;
 	private Skeleton3D left_skeleton;
@@ -18,8 +18,11 @@ public partial class leg2 : Node3D
 	private WalkingAnimation _walkingAnimation;
 
 	private FootMovement _footMovement;
+
+	private MeshInstance3D[] debugPos= new MeshInstance3D[2];
 	public override void _Ready()
 	{
+		Test.run();
 
         body = GetNode<MeshInstance3D>("body");
 
@@ -28,10 +31,13 @@ public partial class leg2 : Node3D
 		right_skeleton = leg.GetNode<Skeleton3D>("rightSkeleton");
 		// 0 为bottom 1 为top
 
+		var leftPos = GetNode<MeshInstance3D>("leftFoot");
+		var rightPos = GetNode<MeshInstance3D>("rightFoot");
 
-      
+		debugPos[0] = leftPos;
+		debugPos[1] = rightPos;
 
-        _walkingAnimation = new WalkingAnimation(MoveFoot,0.3f);
+        _walkingAnimation = new WalkingAnimation(MoveFoot,0.1f);
 
 		_footMovement = new FootMovement();
 		_footMovement.Initialize(GlobalPosition);
@@ -39,8 +45,8 @@ public partial class leg2 : Node3D
 
     private void MoveFoot(int stepIndex)
     {
-        GD.Print(stepIndex,"我移动了一段时间了，我的脚也要跟着动了");
-		_footMovement.StepFoot(stepIndex % 2, GlobalPosition,forword);
+
+		_footMovement.StepFoot2(stepIndex % 2,Transform);
 
     }
 
@@ -48,60 +54,78 @@ public partial class leg2 : Node3D
 
 
 	private Vector3 forword;
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	private Vector3 targetForword;
+	private float AngularSpeed = 20f;
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 		var zDir = Input.GetAxis("move_up", "move_down");
-		var xDir = Input.GetAxis("move_right", "move_left");
+		var xDir = Input.GetAxis("move_left", "move_right");
+
+
 
 		if (xDir != 0 || zDir != 0)
 		{
-			Translate(new Vector3(xDir, 0, -zDir) * moveSpeed * (float)delta);
 			_walkingAnimation.Process(delta);
-		}
 
-		forword.X = xDir; forword.Z = zDir;
+            targetForword = new Vector3(xDir, 0, zDir);
 
-		_footMovement.step();
 
-		GD.Print($"{_footMovement.foot[0]},{_footMovement.foot[1]}");
+            forword = forword.Lerp(targetForword, AngularSpeed * (float)delta);
 
-		UpdateBone("left", 0, _footMovement.foot[0], GlobalPosition);
-        UpdateBone("left", 1, GlobalPosition + new Vector3(-1f,4f,0), GlobalPosition);
 
-        UpdateBone("right", 0, _footMovement.foot[1], GlobalPosition);
-        UpdateBone("right", 1, GlobalPosition + new Vector3(1f, 4f, 0), GlobalPosition);
+			Transform = Transform.LookingAt(Transform.Origin + forword, Vector3.Up);
+
+			GlobalPosition = GlobalPosition + forword * moveSpeed * (float)delta;
+
+
+        }
+
+
+
+
+
+        _footMovement.step();
+		debugPos[0].GlobalPosition = _footMovement.foot[0];
+        debugPos[1].GlobalPosition = _footMovement.foot[1];
+
+
+
+
+        UpdateBone("left", 0, Transform.AffineInverse() * _footMovement.foot[0]);
+        UpdateBone("left", 1, new Vector3(-1f, 4f, 0));
+
+        UpdateBone("right", 0, Transform.AffineInverse() * _footMovement.foot[1]);
+        UpdateBone("right", 1, new Vector3(1f, 4f, 0));
+
+
+
     }
+
+	
+
+
+
 
 
     // ui
-    public void UpdateBone(string dirType,int footId, Vector3 globalPos,Vector3 parentPos)
+    public void UpdateBone(string dirType,int footId, Vector3 relativePos)
     {
 
-		var relativePos = (globalPos - parentPos) / 10f;
+		 relativePos = relativePos / 10f;
 
         if (dirType == "left")
 		{
             left_skeleton.SetBonePosePosition(footId, relativePos);
 
-
-
-
-
-
-
-
-			GD.Print($"left:{footId} ,{relativePos}");
 			//需要c# 枚举 或者映射写法 kf kc  ku
-
 
 		}
         if (dirType == "right")
 		{
 			right_skeleton.SetBonePosePosition(footId, relativePos);
 
-            GD.Print($"right:{footId} ,{relativePos}");
+            //GD.Print($"right:{footId} ,{relativePos}");
 
         }
 

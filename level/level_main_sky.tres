@@ -1,0 +1,12 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://cb325pbqmpbju"]
+
+[ext_resource type="Sky" uid="uid://jonn5eom7asv" path="res://assets/sky/blue_sky.tres" id="1_h06n0"]
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 0.67
+sky = ExtResource("1_h06n0")
+tonemap_mode = 2
+tonemap_white = 2.6
+fog_light_color = Color(0.501961, 0.580392, 0.45098, 1)
+fog_light_energy = 0.1

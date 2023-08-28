@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkl15u2ouumy0"]
+
+[ext_resource type="PackedScene" uid="uid://bja154k0ci1n1" path="res://blender模型/核心2.blend" id="1_oi7ab"]
+
+[node name="核心2" instance=ExtResource("1_oi7ab")]

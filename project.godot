@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mygame"
-run/main_scene="res://server/dev.tscn"
+run/main_scene="res://server/server.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

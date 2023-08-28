@@ -110,5 +110,6 @@ class debug:
 		textArr.push_back(str('输入状态: ',_G.inputMode_get_text()))
 		var text = Utils.joinArrayElements(textArr,'\n')
 		return text
-
+	static func resetCameraTranform():
+		_G.singletonNodeGroup['cameraNode'].transform = Transform3D()
 

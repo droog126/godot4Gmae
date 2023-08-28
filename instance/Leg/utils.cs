@@ -43,4 +43,37 @@ public static class MathUtils
         return newPosition;
     }
 
+
+    //
+    // 摘要:
+    //     角度变Vector
+    //is
+    // 参数:
+    //   to:
+    //     The other vector to compare this vector to.
+    //
+    //   axis:
+    //     The reference axis to use for the angle sign.
+    //
+    // 返回结果:
+    //     The signed angle between the two vectors, in radians.
+    // 以-Z开始 左 -  右 +
+    public static Vector3 AngleToVector(float angle)
+    {
+        
+        return Vector3.Forward.Rotated(Vector3.Up, Mathf.DegToRad(-angle));
+    }
+
+    public static Basis VectorToBais(Vector3 vector)
+    {
+
+        // 看着-z
+        return Basis.LookingAt(vector,Vector3.Up);
+    }
+
+    public static float Distance2D(Vector3 a, Vector3 b)
+    {
+      return a.DistanceTo(b) - Mathf.Abs(a.Y - b.Y);
+    }
+    // vectore -> B -> T
 }

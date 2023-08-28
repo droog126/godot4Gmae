@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://chbwcqajktvbx"]
 
-[ext_resource type="PackedScene" uid="uid://b5cf2n6st5m7n" path="res://blender/cur.blend" id="1_am16k"]
+[ext_resource type="PackedScene" uid="uid://b5cf2n6st5m7n" path="res://blender草稿/cur.blend" id="1_am16k"]
 
 [node name="Node" type="Node"]
 
