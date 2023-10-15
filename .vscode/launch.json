@@ -2,6 +2,21 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run Gdot c#",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "C:/Users/宁涛/Downloads/godot.windows.editor.x86_64.mono/godot.windows.editor.x86_64.mono.exe",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "stopAtEntry": false,
+            "args": [
+                "--path",
+                "${workspaceFolder}",
+                "-d"
+            ]
+        },
+        {
             "name": "Godot",
             "type": "godot",
             "request": "launch",
@@ -11,6 +26,6 @@
             "address": "127.0.0.1",
             "launch_game_instance": true,
             "launch_scene": false
-        }
+        },
     ]
 }

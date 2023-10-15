@@ -1,9 +1,9 @@
-﻿using Godot;
+using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-public class FootMovement
+public class Man
 {
     private Vector3[] footPrev;
     private Vector3[] footTarget;
@@ -12,7 +12,7 @@ public class FootMovement
     public Vector3[] foot;
     private Vector3[] hand;
 
-    public FootMovement()
+    public Man()
     {
         // 初始化数组等操作
     }
@@ -38,7 +38,6 @@ public class FootMovement
 
     public void Initialize(Vector3 pos, RayCast3D[] _rayCast3Ds)
     {
-
 
         foot = new Vector3[2];
         hand = new Vector3[2];
