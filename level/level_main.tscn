@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdmrt3r2dnxoy"]
+[gd_scene load_steps=13 format=3 uid="uid://cdmrt3r2dnxoy"]
 
 [ext_resource type="PackedScene" uid="uid://6kydl457e7dx" path="res://instance/Mountain/mountain.tscn" id="2_f4x7o"]
 [ext_resource type="Environment" uid="uid://cb325pbqmpbju" path="res://level/level_main_sky.tres" id="3_a0pwp"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bmr74lid08qnd" path="res://instance/Grass/grass.tscn" id="5_mji6y"]
 [ext_resource type="PackedScene" uid="uid://1wuo3mvru5ho" path="res://blender提取/地图.tscn" id="5_qjxtp"]
 [ext_resource type="PackedScene" uid="uid://d3rbwbfpok2us" path="res://instance/Leg/newPeople.tscn" id="6_prfug"]
-[ext_resource type="PackedScene" uid="uid://b8dhmfrvdmhmd" path="res://instance/Leg/leg2.tscn" id="6_tp28u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kvrcu"]
 resource_name = "Leaves"
@@ -71,7 +70,7 @@ shadow_enabled = true
 sky_mode = 1
 
 [node name="mountain" parent="." instance=ExtResource("2_f4x7o")]
-transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 35, -0.354249, -4.43085, 0)
+transform = Transform3D(35, 0, 0, 0, 35, 0, 0, 0, 35, -0.354249, -17.209, 0)
 
 [node name="cloud" parent="." instance=ExtResource("3_odr5e")]
 transform = Transform3D(12, 0, 0, 0, 6, 0, 0, 0, 10, 0, 10.4823, 0)
@@ -105,7 +104,3 @@ metadata/_edit_lock_ = true
 
 [node name="newPeople" parent="." groups=["debug", "player"] instance=ExtResource("6_prfug")]
 transform = Transform3D(1, 0, 0, 0, 0.99928, 0.0379518, 0, -0.0379518, 0.99928, 0.451316, -3.74215, -0.191188)
-
-[node name="leg" parent="." groups=["debug"] instance=ExtResource("6_tp28u")]
-transform = Transform3D(0.693401, 0, 0.720552, 0, 1, 0, -0.720552, 0, 0.693401, 0.67708, -4.12393, -1.44361)
-visible = false

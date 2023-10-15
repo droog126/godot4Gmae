@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3rbwbfpok2us"]
+[gd_scene load_steps=18 format=3 uid="uid://d3rbwbfpok2us"]
 
 [ext_resource type="Script" path="res://instance/Leg/leg3.cs" id="1_fgv32"]
 
@@ -183,11 +183,15 @@ material = SubResource("StandardMaterial3D_psihi")
 radius = 0.05
 height = 0.1
 
-[node name="newPeople" type="Node3D" node_paths=PackedStringArray("leftSkelton", "rightSeleton")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rtxsv"]
+radius = 0.169582
+height = 1.01807
+
+[node name="newPeople" type="CharacterBody3D" node_paths=PackedStringArray("leftSkeleton", "rightSkeleton")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000979231, 0, 0)
 script = ExtResource("1_fgv32")
-leftSkelton = NodePath("leftLeg/Skeleton3D")
-rightSeleton = NodePath("rightLeg/Skeleton3D")
+leftSkeleton = NodePath("leftLeg/Skeleton3D")
+rightSkeleton = NodePath("rightLeg/Skeleton3D")
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000979231, 0, 0)
@@ -240,12 +244,29 @@ bones/1/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_d1dej")
 skin = SubResource("Skin_l22y3")
 
+[node name="leftRay" type="RayCast3D" parent="."]
+transform = Transform3D(0.693401, 0, 0.720552, 0, 1, 0, -0.720552, 0, 0.693401, -0.779915, 0.3, -1.04308e-06)
+top_level = true
+target_position = Vector3(0, 0.3, 0)
+
+[node name="rightRay" type="RayCast3D" parent="."]
+transform = Transform3D(0.693401, 0, 0.720552, 0, 1, 0, -0.720552, 0, 0.693401, 0.692752, 0.3, 2.98023e-08)
+top_level = true
+target_position = Vector3(0, -0.3, 0)
+
 [node name="leftFoot" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.693401, 0, 0.720552, 0, 1, 0, -0.720552, 0, 0.693401, -0.779915, 0, -1.04308e-06)
+top_level = true
 mesh = SubResource("SphereMesh_0rvxq")
 skeleton = NodePath("")
 
 [node name="rightFoot" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.693401, 0, 0.720552, 0, 1, 0, -0.720552, 0, 0.693401, 0.692752, 0, 2.98023e-08)
+top_level = true
 mesh = SubResource("SphereMesh_h2cmi")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507638, 0)
+shape = SubResource("CapsuleShape3D_rtxsv")
+disabled = true

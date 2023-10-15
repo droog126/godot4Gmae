@@ -235,14 +235,17 @@ _data = {
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/sync = true
+properties/0/watch = false
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/sync = true
+properties/1/watch = false
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1se5v"]
 properties/0/path = NodePath("../PlayerInput:direction")
 properties/0/spawn = true
 properties/0/sync = true
+properties/0/watch = false
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ju1is"]
 radius = 0.110136

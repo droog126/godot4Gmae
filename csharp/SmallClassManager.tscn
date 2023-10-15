@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cywgu1rgygx1o"]
+
+[ext_resource type="Script" path="res://csharp/SmallClassManager.cs" id="1_tghyj"]
+
+[node name="smallClassmanager" type="Node"]
+script = ExtResource("1_tghyj")

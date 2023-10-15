@@ -71,7 +71,7 @@ func _process(delta):
 	#	var direction = Vector3(x,y,z); 火车
 		# 含义是啥
 		var direction = (transform.basis * Vector3(x,y,z)).normalized()
-		global_transform.origin += direction * .01;
+		global_transform.origin += direction * .05;
 
 		
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):

@@ -1,7 +1,7 @@
 ﻿using Godot;
 using System;
 
-public class Test
+public class Test1
 {
     static public void run()
     {
