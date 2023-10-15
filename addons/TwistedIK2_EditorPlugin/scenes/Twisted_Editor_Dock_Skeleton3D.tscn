@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6os51yry7bcs"]
+
+[ext_resource type="Script" path="res://addons/TwistedIK2_EditorPlugin/scripts/Twisted_Editor_Dock_Skeleton3D.cs" id="1"]
+
+[node name="Dock_TwistedSkeleton3D" type="Control"]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="DockPanel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/DockPanel"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = -12.0
+
+[node name="Label" type="Label" parent="MarginContainer/DockPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+text = "Twisted Skeleton3D Node"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/DockPanel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Create_Bones" type="Button" parent="MarginContainer/DockPanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "Create Twisted_Bone3D nodes"

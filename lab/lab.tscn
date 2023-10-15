@@ -1,4 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://chbwcqajktvbx"]
+[gd_scene load_steps=18 format=3 uid="uid://chbwcqajktvbx"]
+
+[ext_resource type="Script" path="res://src/man/index.cs" id="1_yrhfw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4s8r"]
 resource_name = "DefaultMaterial"
@@ -288,6 +290,7 @@ size = Vector3(22.3894, 0.336361, 12.9076)
 
 [node name="man2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.83706)
+script = ExtResource("1_yrhfw")
 
 [node name="骨架" type="Node3D" parent="man2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037977, -0.00442235, -0.039841)
@@ -326,8 +329,8 @@ bones/4/name = "foot.001.L"
 bones/4/parent = 3
 bones/4/rest = Transform3D(1, 3.3034e-21, 2.62268e-07, -5.16693e-21, 1, 7.10543e-15, -2.62268e-07, -7.10543e-15, 1, 1.10382e-09, 0.20288, -2.57845e-09)
 bones/4/enabled = true
-bones/4/position = Vector3(1.13752e-08, 0.20288, 0.117491)
-bones/4/rotation = Quaternion(-3.55271e-15, 1.31134e-07, -1.6517e-21, 1)
+bones/4/position = Vector3(5.95803e-09, 0.408758, 0.055526)
+bones/4/rotation = Quaternion(-4.65882e-22, 1.31134e-07, -7.10543e-15, 1)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "foot.002.L"
 bones/5/parent = 4

@@ -19,6 +19,26 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "删除log文件",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Get-ChildItem -Path path/to/your/logs -Filter 'godot.windows.editor.x86_64.mono.*.log' | Remove-Item -Force"
+            ],
+            "windows": {
+                "options": {
+                    "env": {
+                        "path/to/your/logs": "${workspaceFolder}/path_to_logs_folder"
+                    }
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

@@ -10,7 +10,7 @@ var enet_peer = ENetMultiplayerPeer.new()
 #const CUSTOM = Log.MAX << 1; # Bitwise left shift the MAX value for a custom level.
 #const CUSTOM = Log.MAX << 1;
 func _ready():
-	Log.info('游戏开始，我是client')
+		pass
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed('q'):
@@ -22,22 +22,24 @@ func _unhandled_input(event):
 func _on_join_button_pressed():
 	enet_peer.create_client('127.0.0.1',PORT)
 	multiplayer.multiplayer_peer = enet_peer
-	Log.debug(str('正在连接服务器',enet_peer))
+
 	
 	multiplayer.connected_to_server.connect(join_success)
 	multiplayer.connection_failed.connect(join_failed)
 	multiplayer.server_disconnected.connect(server_not_fuond)
 
 func join_success():
-	Log.debug(str('成功连接服务器'));
+
 	main_menu.hide()
 	hud.show()
 	
 func join_failed():
-	Log.debug(str('连接失败'))
+
+	pass
 
 func server_not_fuond():
-	Log.debug(str('服务器找不到'))
+
+	pass
 
 
 

@@ -10,6 +10,13 @@
         "**/*.tscn": true
     },
     "explorer.fileNesting.enabled": true,
+    "editor.fontSize": 12,
+    "editor.fontVariations": false,
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "[csharp]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    }
     // "explorer.fileNesting.patterns": {
     //     "*.ts": "${capture}.js",
     //     "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
