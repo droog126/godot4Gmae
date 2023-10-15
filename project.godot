@@ -32,7 +32,7 @@ project/assembly_name="Mygame"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/panku_console/plugin.cfg")
+enabled=PackedStringArray("res://addons/TwistedIK2/plugin.cfg", "res://addons/TwistedIK2_EditorPlugin/plugin.cfg", "res://addons/panku_console/plugin.cfg")
 
 [filesystem]
 

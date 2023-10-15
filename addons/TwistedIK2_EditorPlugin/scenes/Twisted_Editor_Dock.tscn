@@ -1,28 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://vuuwnvtyktiw"]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource type="Script" path="res://addons/TwistedIK2_EditorPlugin/scripts/Twisted_Editor_Dock.cs" id="1"]
-[ext_resource type="PackedScene" path="res://addons/TwistedIK2_EditorPlugin/scenes/Twisted_Editor_Dock_Skeleton3D.tscn" id="2"]
+[ext_resource path="res://addons/TwistedIK2_EditorPlugin/scripts/Twisted_Editor_Dock.cs" type="Script" id=1]
+[ext_resource path="res://addons/TwistedIK2_EditorPlugin/scenes/Twisted_Editor_Dock_Skeleton3D.tscn" type="PackedScene" id=2]
 
 [node name="TwistedIK_Editor_Dock" type="Control"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource("1")
+custom_minimum_size = Vector2( 0, 200 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label_Title" type="Label" parent="."]
-layout_mode = 0
 anchor_right = 1.0
 offset_bottom = 42.0
 text = "Twisted IK 2 Editor Plugin.
 Select a Twisted node and then the \"refresh\" button below:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RefreshButton" type="Button" parent="."]
-layout_mode = 0
 anchor_right = 1.0
 offset_left = 384.0
 offset_top = 60.0
@@ -31,19 +32,26 @@ offset_bottom = 80.0
 text = "Refresh"
 
 [node name="DockContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 98.0
 offset_bottom = -24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Dock_TwistedSkeleton3D" parent="DockContainer" instance=ExtResource("2")]
+[node name="Dock_TwistedSkeleton3D" parent="DockContainer" instance=ExtResource( 2 )]
 visible = false
-layout_mode = 2
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1024.0
+offset_bottom = 120.0
 
 [node name="Padding" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_minimum_size = Vector2( 0, 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
