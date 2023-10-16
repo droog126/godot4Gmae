@@ -6,7 +6,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "C:/Users/宁涛/Downloads/godot.windows.editor.x86_64.mono/godot.windows.editor.x86_64.mono.exe",
+            "program": "C:/Users/宁涛/Desktop/godotProject/godot/godot.windows.editor.x86_64.mono.exe",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "stopAtEntry": false,

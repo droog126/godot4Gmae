@@ -1,6 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://chbwcqajktvbx"]
+[gd_scene load_steps=20 format=3 uid="uid://chbwcqajktvbx"]
 
+[ext_resource type="PackedScene" uid="uid://di161mmwhhtxk" path="res://assets/3D_IK_Dino/Object_IK_Dino_FABRIK.tscn" id="1_e5s1e"]
 [ext_resource type="Script" path="res://src/man/index.cs" id="1_yrhfw"]
+[ext_resource type="PackedScene" uid="uid://cibtlr3in1e0c" path="res://system/3DEnv.tscn" id="3_q2nup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4s8r"]
 resource_name = "DefaultMaterial"
@@ -288,6 +290,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.206087, -0.315369, 0)
 use_collision = true
 size = Vector3(22.3894, 0.336361, 12.9076)
 
+[node name="Object_IK_Dino_FABRIK" parent="." instance=ExtResource("1_e5s1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0559964, 1.31314, 0.844702)
+
 [node name="man2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.83706)
 script = ExtResource("1_yrhfw")
@@ -464,3 +469,5 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.1195, 0)
 mesh = SubResource("ArrayMesh_ajn7o")
 skeleton = NodePath("")
+
+[node name="3DEnv" parent="." instance=ExtResource("3_q2nup")]

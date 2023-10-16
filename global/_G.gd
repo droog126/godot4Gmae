@@ -58,7 +58,10 @@ func cameraMode_add_circle():
 	if cameraMode == CameraMode.Debug :
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	if !cameraTarget:
-		cameraTarget = get_tree().get_nodes_in_group("debug")[0]
+		var arr = get_tree().get_nodes_in_group("debug")
+		if !arr.is_empty():
+			cameraTarget = arr[0]
+
 		
 func cameraMode_get_text():
 	return cameraModeMap[cameraMode]

@@ -1,0 +1,484 @@
+[gd_scene load_steps=9 format=3 uid="uid://khq6an87gsqh"]
+
+[ext_resource type="PackedScene" uid="uid://kuel35osq8b" path="res://Assets/3D_IK_Spider/IK_Spider.glb" id="1"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_Skeleton3D.cs" id="2"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_Bone3D.cs" id="3"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_ModifierStack3D.cs" id="4"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_ModifierFABRIK3D.cs" id="5"]
+[ext_resource type="Script" path="res://Assets/3D_IK_Spider/Object_IK_Spider.gd" id="6"]
+[ext_resource type="Script" path="res://Assets/3D_IK_Spider/Object_IK_Spider_Leg.gd" id="7"]
+
+[sub_resource type="SphereShape3D" id="1"]
+
+[node name="Object_IK_Spider_FABRIK" type="CharacterBody3D"]
+script = ExtResource("6")
+
+[node name="Spider_Stuff" type="Node3D" parent="."]
+
+[node name="IK_Spider" parent="Spider_Stuff" instance=ExtResource("1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Twisted_Skeleton3D" type="Node3D" parent="Spider_Stuff"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("2")
+/bone_forward_direction = 0
+_path_to_skeleton = NodePath("../IK_Spider/Armature/Skeleton")
+
+[node name="root" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D"]
+transform = Transform3D(1, -1.19207e-06, -1.75266e-13, -1.1838e-06, -0.993045, -0.117675, 1.40279e-07, 0.117674, -0.993052, 0, -0.0875065, -1.5)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = false
+settings/path_to_twisted_skeleton = NodePath("../../../../Object_IK_Spider_FABRIK/Spider_Stuff/Twisted_Skeleton3D")
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "root"
+bone_data/bone_id = 0
+bone_data/bone_length = 1.51049
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="head" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(1, 7.94387e-07, -1.40279e-07, -8.05375e-07, 0.993052, -0.117676, 4.58237e-08, 0.117676, 0.993052, 1.42109e-14, -1.49012e-07, -3.02099)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "head"
+bone_data/bone_id = 1
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_leg_1_upper" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(0.343684, 0.730011, 0.590732, -0.262841, 0.678686, -0.685784, -0.901552, 0.0804241, 0.425131, -1.1546, 0.345461, -2.41913)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_leg_1_upper"
+bone_data/bone_id = 2
+bone_data/bone_length = 0.869837
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_leg_1_lower" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/right_leg_1_upper"]
+transform = Transform3D(0.887264, 0.419785, -0.191164, -0.416386, 0.550608, -0.723501, -0.198458, 0.721534, 0.663327, 0, -1.19209e-07, -1.73968)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_leg_1_lower"
+bone_data/bone_id = 3
+bone_data/bone_length = 0.999994
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/right_leg_1_upper/right_leg_1_lower"]
+transform = Transform3D(1, 2.79574e-08, -1.19209e-07, -2.77682e-08, 1, -9.58106e-08, 0, 6.29422e-08, 1, 0, 0, -2)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_leg_2_upper" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(-0.000734448, 0.422422, 0.906399, 0.118016, 0.900102, -0.419392, -0.993011, 0.106662, -0.0505139, -1.32775, 0.354606, -1.46891)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_leg_2_upper"
+bone_data/bone_id = 4
+bone_data/bone_length = 0.871189
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_leg_2_lower" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/right_leg_2_upper"]
+transform = Transform3D(0.999998, -0.000718634, -0.00167341, -0.00115185, 0.462166, -0.886793, 0.00141067, 0.886793, 0.462164, 6.51926e-09, 2.38419e-07, -1.74238)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_leg_2_lower"
+bone_data/bone_id = 5
+bone_data/bone_length = 0.999994
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/right_leg_2_upper/right_leg_2_lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_leg_3_upper" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(-0.341663, 0.730012, 0.591903, 0.464329, 0.678686, -0.56902, -0.817107, 0.080425, -0.570848, -1.14978, 0.119176, -0.553237)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_leg_3_upper"
+bone_data/bone_id = 6
+bone_data/bone_length = 0.877573
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_leg_3_lower" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/right_leg_3_upper"]
+transform = Transform3D(0.887722, -0.417317, 0.194414, 0.417188, 0.550609, -0.723038, 0.19469, 0.722964, 0.662887, 1.19209e-07, -1.78814e-07, -1.75515)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_leg_3_lower"
+bone_data/bone_id = 7
+bone_data/bone_length = 0.999996
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/right_leg_3_upper/right_leg_3_lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_leg_1_upper" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(0.352463, -0.713265, -0.605824, 0.254479, 0.696025, -0.671409, 0.900561, 0.0824777, 0.426834, 1.17079, 0.337944, -2.42002)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_leg_1_upper"
+bone_data/bone_id = 8
+bone_data/bone_length = 0.869837
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_leg_1_lower" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/left_leg_1_upper"]
+transform = Transform3D(0.921431, -0.365507, 0.131797, 0.362548, 0.686818, -0.629953, 0.139732, 0.628241, 0.765369, -4.76837e-07, -1.78814e-07, -1.73968)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_leg_1_lower"
+bone_data/bone_id = 9
+bone_data/bone_length = 0.999994
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/left_leg_1_upper/left_leg_1_lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_leg_2_upper" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(-0.000724316, -0.449448, -0.893306, -0.118037, 0.8871, -0.44623, 0.993009, 0.10512, -0.0536942, 1.32565, 0.369513, -1.46714)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_leg_2_upper"
+bone_data/bone_id = 10
+bone_data/bone_length = 0.871189
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_leg_2_lower" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/left_leg_2_upper"]
+transform = Transform3D(0.999998, 0.000588421, 0.00185497, 0.000944114, 0.686819, -0.726828, -0.00170171, 0.726829, 0.686817, -1.18976e-07, 1.49012e-07, -1.74238)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_leg_2_lower"
+bone_data/bone_id = 11
+bone_data/bone_length = 0.999994
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/left_leg_2_upper/left_leg_2_lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_leg_3_upper" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(-0.350392, -0.713265, -0.607024, -0.456015, 0.696025, -0.554617, 0.818093, 0.0824789, -0.569141, 1.16585, 0.111777, -0.554113)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_leg_3_upper"
+bone_data/bone_id = 12
+bone_data/bone_length = 0.877573
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_leg_3_lower" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/left_leg_3_upper"]
+transform = Transform3D(0.921753, 0.363357, -0.135434, -0.363246, 0.686818, -0.62955, -0.135733, 0.629485, 0.765065, 1.78814e-07, 0, -1.75515)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_leg_3_lower"
+bone_data/bone_id = 13
+bone_data/bone_length = 0.999996
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Spider_Stuff/Twisted_Skeleton3D/root/left_leg_3_upper/left_leg_3_lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="Twisted_ModifierStack3D" type="Node3D" parent="Spider_Stuff"]
+script = ExtResource("4")
+stack/twisted_skeleton = NodePath("../Twisted_Skeleton3D")
+stack/execution_enabled = false
+stack/execute_on_ready = false
+
+[node name="Right_Leg_01" type="Node3D" parent="Spider_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("5")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Right_Leg_01/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 2
+FABRIK/joint/0/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/right_leg_1_upper")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 1
+FABRIK/joint/1/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/right_leg_1_upper/right_leg_1_lower")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 1
+FABRIK/joint/1/use_target_basis = false
+
+[node name="Right_Leg_02" type="Node3D" parent="Spider_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("5")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Right_Leg_02/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 2
+FABRIK/joint/0/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/right_leg_2_upper")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 1
+FABRIK/joint/1/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/right_leg_2_upper/right_leg_2_lower")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 1
+FABRIK/joint/1/use_target_basis = false
+
+[node name="Right_Leg_03" type="Node3D" parent="Spider_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("5")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Right_Leg_03/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 2
+FABRIK/joint/0/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/right_leg_3_upper")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 1
+FABRIK/joint/1/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/right_leg_3_upper/right_leg_3_lower")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 1
+FABRIK/joint/1/use_target_basis = false
+
+[node name="Left_Leg_01" type="Node3D" parent="Spider_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("5")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Left_Leg_01/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 2
+FABRIK/joint/0/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/left_leg_1_upper")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 1
+FABRIK/joint/1/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/left_leg_1_upper/left_leg_1_lower")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 1
+FABRIK/joint/1/use_target_basis = false
+
+[node name="Left_Leg_02" type="Node3D" parent="Spider_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("5")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Left_Leg_02/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 2
+FABRIK/joint/0/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/left_leg_2_upper")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 1
+FABRIK/joint/1/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/left_leg_2_upper/left_leg_2_lower")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 1
+FABRIK/joint/1/use_target_basis = false
+
+[node name="Left_Leg_03" type="Node3D" parent="Spider_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("5")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Left_Leg_03/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 2
+FABRIK/joint/0/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/left_leg_3_upper")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 1
+FABRIK/joint/1/twisted_bone = NodePath("../../Twisted_Skeleton3D/root/left_leg_3_upper/left_leg_3_lower")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 1
+FABRIK/joint/1/use_target_basis = false
+
+[node name="Right_Leg_01" type="Node3D" parent="Spider_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.807409, 0, 1.50093)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Spider_Stuff/Right_Leg_01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34733, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Spider_Stuff/Right_Leg_01"]
+
+[node name="Right_Leg_02" type="Node3D" parent="Spider_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.10846, 0, 0.862832)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Spider_Stuff/Right_Leg_02"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34733, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Spider_Stuff/Right_Leg_02"]
+
+[node name="Right_Leg_03" type="Node3D" parent="Spider_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13823, 0, 0.119996)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Spider_Stuff/Right_Leg_03"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34733, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Spider_Stuff/Right_Leg_03"]
+
+[node name="Left_Leg_01" type="Node3D" parent="Spider_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77569, 0, 1.50093)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Spider_Stuff/Left_Leg_01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34733, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Spider_Stuff/Left_Leg_01"]
+
+[node name="Left_Leg_02" type="Node3D" parent="Spider_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40757, 0, 0.909129)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Spider_Stuff/Left_Leg_02"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34733, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Spider_Stuff/Left_Leg_02"]
+
+[node name="Left_Leg_03" type="Node3D" parent="Spider_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44154, 0, 0.118706)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Spider_Stuff/Left_Leg_03"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34733, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Spider_Stuff/Left_Leg_03"]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.222902, 0)
+shape = SubResource("1")
+
+[node name="Camera_Rot_Y" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+
+[node name="Camera_Rot_X" type="Node3D" parent="Camera_Rot_Y"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+
+[node name="Camera" type="Camera3D" parent="Camera_Rot_Y/Camera_Rot_X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+size = 8.0
+
+[node name="RayCast_Grounded" type="RayCast3D" parent="."]
+
+[editable path="Spider_Stuff/IK_Spider"]
