@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://chbwcqajktvbx"]
+[gd_scene load_steps=19 format=3 uid="uid://chbwcqajktvbx"]
 
-[ext_resource type="PackedScene" uid="uid://di161mmwhhtxk" path="res://assets/3D_IK_Dino/Object_IK_Dino_FABRIK.tscn" id="1_e5s1e"]
-[ext_resource type="Script" path="res://src/man/index.cs" id="1_yrhfw"]
+[ext_resource type="PackedScene" uid="uid://dwqokevplwixj" path="res://assets/3D_IK_Dino/Object_IK_Dino_FABRIK.tscn" id="1_e5s1e"]
 [ext_resource type="PackedScene" uid="uid://cibtlr3in1e0c" path="res://system/3DEnv.tscn" id="3_q2nup"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4s8r"]
@@ -295,7 +294,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0559964, 1.31314, 0.844702)
 
 [node name="man2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.83706)
-script = ExtResource("1_yrhfw")
 
 [node name="骨架" type="Node3D" parent="man2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037977, -0.00442235, -0.039841)

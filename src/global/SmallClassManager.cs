@@ -12,7 +12,7 @@ public partial class SmallClassManager : Godot.Node
     {
 
 
-        string[] classNames = {"InputControl", "Test" };
+        string[] classNames = { "InputControl", "Test" };
         foreach (string className in classNames)
         {
             Type type = Type.GetType(className);
@@ -69,7 +69,8 @@ public partial class InputControl
 }
 
 
-public partial class Test { 
+public partial class Test
+{
 
 
     private InputMode inputMode = 0;
@@ -80,7 +81,7 @@ public partial class Test {
 
         GD.Print("global", Global.GlobalVariable);
 
-     
+
 
     }
 
@@ -89,7 +90,7 @@ public partial class Test {
 
         var inputControl = Global.GetSingleClass<InputControl>("InputControl");
 
-        GD.Print("here", inputControl.inputMode);
+        // GD.Print("here", inputControl.inputMode);
 
 
 
