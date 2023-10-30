@@ -157,7 +157,7 @@ public class FootMovement
             {
                 //footTarget[i].Y -= 0.1f;
             }
-            GD.Print(footTarget[i], pos, collisoner);
+            // GD.Print(footTarget[i], pos, collisoner);
         }
     }
 
