@@ -1,0 +1,10 @@
+{
+	"getInputDir": {
+        "prefix": "getInputDir",
+        "body": [
+            "\t\tvar zDir = Input.GetAxis(\"move_up\", \"move_down\");",
+            "\t\tvar xDir = Input.GetAxis(\"move_left\", \"move_right\");"
+        ],
+        "description": "getInputDir"
+    }
+}
