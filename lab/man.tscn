@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2aqan631xcig"]
+[gd_scene load_steps=5 format=3 uid="uid://cgetg44y7vt55"]
 
 [ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_Skeleton3D.cs" id="1_yq0yg"]
 
@@ -223,3 +223,4 @@ skin = SubResource("Skin_r7k10")
 
 [node name="Twisted_Skeleton3D" type="Node3D" parent="."]
 script = ExtResource("1_yq0yg")
+/bone_forward_direction = 0

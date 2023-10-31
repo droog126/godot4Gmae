@@ -3,11 +3,10 @@
     // "godot_tools.gdscript_lsp_server_port": 6005,
     "files.exclude": {
         "**/*.import": true,
-        // "**/*.js": true,
-        // "**/*.map": true,
         "**/*.obj": true,
         "**/*.tres": true,
-        "**/*.tscn": true
+        "**/*.gltf": true,
+        // "**/*.tscn": true
     },
     "explorer.fileNesting.enabled": true,
     "editor.fontSize": 12,

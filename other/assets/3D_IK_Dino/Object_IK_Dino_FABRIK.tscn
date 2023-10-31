@@ -1,0 +1,345 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwqokevplwixj"]
+
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_ModifierStack3D.cs" id="1"]
+[ext_resource type="Script" path="res://Assets/3D_IK_Dino/Object_IK_Dino.gd" id="2"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_Bone3D.cs" id="3"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_ModifierFABRIK3D.cs" id="4"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_Skeleton3D.cs" id="5"]
+[ext_resource type="PackedScene" uid="uid://dgerrvgnt0ixv" path="res://other/assets/3D_IK_Dino/IK_Dino.glb" id="6"]
+[ext_resource type="Script" path="res://Assets/3D_IK_Dino/Object_IK_Dino_Leg.gd" id="7"]
+[ext_resource type="Script" path="res://addons/TwistedIK2/IK_3D/Twisted_ModifierJiggle3D.cs" id="8"]
+
+[sub_resource type="CapsuleShape3D" id="1"]
+
+[node name="Object_IK_Dino_FABRIK" type="CharacterBody3D"]
+script = ExtResource("2")
+
+[node name="Dino_Stuff" type="Node3D" parent="."]
+
+[node name="IK_Dino" parent="Dino_Stuff" instance=ExtResource("6")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -1.39774, 0)
+
+[node name="Twisted_Skeleton3D" type="Node3D" parent="Dino_Stuff"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -1.39774, 0)
+script = ExtResource("5")
+/bone_forward_direction = 0
+_path_to_skeleton = NodePath("../IK_Dino/Armature/Skeleton3D")
+
+[node name="root" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D"]
+transform = Transform3D(1, -5.24529e-06, 1.14068e-12, -5.22303e-06, -0.995772, -0.0919397, 4.82248e-07, 0.0919403, -0.995764, -2.12222e-16, 5.00229, -1.62042)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = false
+settings/path_to_twisted_skeleton = NodePath("..")
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "Root"
+bone_data/bone_id = 0
+bone_data/bone_length = 0.774562
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="neck" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/root"]
+transform = Transform3D(1, -1.6971e-06, 3.86314e-06, -1.69721e-06, 0.67644, 0.736498, -3.8631e-06, -0.736498, 0.67644, -1.59162e-12, -4.47035e-07, -3.09825)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "neck"
+bone_data/bone_id = 1
+bone_data/bone_length = 0.321726
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="head" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/root/neck"]
+transform = Transform3D(1, -1.60999e-06, -3.78118e-06, -1.60996e-06, 0.69306, -0.72088, 3.78119e-06, 0.72088, 0.69306, 1.81899e-12, 2.38419e-07, -1.2869)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "head"
+bone_data/bone_id = 2
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="tail_1" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D"]
+transform = Transform3D(1, -1.46305e-17, -7.92665e-17, -1.46305e-17, 0.93411, -0.356985, 7.92666e-17, 0.356985, 0.93411, -2.12222e-16, 5.00229, -1.62042)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = false
+settings/path_to_twisted_skeleton = NodePath("..")
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "tail_1"
+bone_data/bone_id = 3
+bone_data/bone_length = 0.330922
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="tail_2" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/tail_1"]
+transform = Transform3D(1, -2.73246e-19, 1.10126e-17, -2.73269e-19, 0.998769, 0.0495959, -1.10126e-17, -0.0495959, 0.998769, 0, -4.76837e-07, -1.32369)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "tail_2"
+bone_data/bone_id = 4
+bone_data/bone_length = 0.227723
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="tail_3" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/tail_1/tail_2"]
+transform = Transform3D(1, -7.28084e-21, -1.79693e-18, -7.2643e-21, 0.999967, -0.00809234, 1.79693e-18, 0.00809234, 0.999967, 2.64698e-23, -3.57628e-07, -0.910891)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "tail_3"
+bone_data/bone_id = 5
+bone_data/bone_length = 0.204298
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="tail_4" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/tail_1/tail_2/tail_3"]
+transform = Transform3D(1, -4.39398e-20, -4.41697e-18, -4.39249e-20, 0.999802, -0.0198922, 4.41699e-18, 0.0198922, 0.999802, 0, -5.96046e-07, -0.817193)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "tail_4"
+bone_data/bone_id = 6
+bone_data/bone_length = -1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_upper_leg" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D"]
+transform = Transform3D(1, -5.72204e-06, 5.00237e-13, -4.37765e-06, -0.76505, 0.643971, -3.68483e-06, -0.64397, -0.76505, 0.909841, 4.54305, -0.469996)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = false
+settings/path_to_twisted_skeleton = NodePath("..")
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_upper_leg"
+bone_data/bone_id = 7
+bone_data/bone_length = 0.567083
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_lower_leg" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/left_upper_leg"]
+transform = Transform3D(1, -7.53739e-06, -5.42644e-06, -7.53739e-06, -0.317255, -0.948341, 5.42645e-06, 0.948341, -0.317255, 0, -2.38419e-07, -2.26833)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_lower_leg"
+bone_data/bone_id = 8
+bone_data/bone_length = 0.683132
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="left_foot" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/left_upper_leg/left_lower_leg"]
+transform = Transform3D(1, -6.62159e-06, 5.65089e-06, -6.62159e-06, -0.157207, 0.987566, -5.6509e-06, -0.987566, -0.157207, 0, -2.38419e-07, -2.73253)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "left_foot"
+bone_data/bone_id = 9
+bone_data/bone_length = 1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/left_upper_leg/left_lower_leg/left_foot"]
+transform = Transform3D(0.999982, 0.00591552, 1.50996e-07, 0.00591552, -0.999982, -2.94511e-08, 1.50819e-07, 3.03438e-08, -1, 5.96046e-08, -7.15256e-07, -4.00001)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = 0.05
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_upper_leg" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D"]
+transform = Transform3D(1, -5.72204e-06, 5.00237e-13, -4.37765e-06, -0.76505, 0.643971, -3.68483e-06, -0.64397, -0.76505, -0.806945, 4.63831, -0.606086)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = false
+settings/path_to_twisted_skeleton = NodePath("..")
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_upper_leg"
+bone_data/bone_id = 10
+bone_data/bone_length = 0.567083
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_lower_leg" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/right_upper_leg"]
+transform = Transform3D(1, -7.53739e-06, -5.42644e-06, -7.53739e-06, -0.317255, -0.948341, 5.42645e-06, 0.948341, -0.317255, 5.96046e-08, -3.57628e-07, -2.26833)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_lower_leg"
+bone_data/bone_id = 11
+bone_data/bone_length = 0.683132
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="right_foot" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/right_upper_leg/right_lower_leg"]
+transform = Transform3D(1, -6.62159e-06, 5.65089e-06, -6.62159e-06, -0.157207, 0.987566, -5.6509e-06, -0.987566, -0.157207, 1.19209e-07, 0, -2.73253)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = true
+bone_data/bone_name = "right_foot"
+bone_data/bone_id = 12
+bone_data/bone_length = 1.0
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="end" type="Node3D" parent="Dino_Stuff/Twisted_Skeleton3D/right_upper_leg/right_lower_leg/right_foot"]
+transform = Transform3D(-1, 0.000141564, 8.74228e-08, 0.000141564, 1, 2.98023e-08, -8.74186e-08, 2.98147e-08, -1, 5.96046e-08, 4.76837e-07, -4)
+script = ExtResource("3")
+settings/auto_get_twisted_skeleton = true
+settings/auto_calcualte_bone_length = false
+bone_data/bone_name = ""
+bone_data/bone_id = -1
+bone_data/bone_length = 0.05
+bone_data/bone_apply_transform = false
+bone_data/bone_apply_strength = 1.0
+bone_data/bone_apply_persistent = true
+bone_data/bone_follow_transform = true
+
+[node name="Twisted_ModifierStack3D" type="Node3D" parent="Dino_Stuff"]
+script = ExtResource("1")
+stack/twisted_skeleton = NodePath("../Twisted_Skeleton3D")
+stack/execution_enabled = false
+stack/execute_on_ready = false
+
+[node name="Leg_Left" type="Node3D" parent="Dino_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("4")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Left_Leg/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 4
+FABRIK/joint/0/twisted_bone = NodePath("")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 0
+FABRIK/joint/1/twisted_bone = NodePath("")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 0
+FABRIK/joint/2/twisted_bone = NodePath("")
+FABRIK/joint/2/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/2/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/2/basis_direction = 0
+FABRIK/joint/3/twisted_bone = NodePath("")
+FABRIK/joint/3/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/3/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/3/basis_direction = 0
+FABRIK/joint/3/use_target_basis = false
+
+[node name="Leg_Right" type="Node3D" parent="Dino_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("4")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+FABRIK/target = NodePath("../../Right_Leg/IK_Target")
+FABRIK/chain_tolerance = 0.01
+FABRIK/chain_max_iterations = 10
+FABRIK/use_lookat = true
+FABRIK/joint_count = 4
+FABRIK/joint/0/twisted_bone = NodePath("")
+FABRIK/joint/0/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/0/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/0/basis_direction = 0
+FABRIK/joint/1/twisted_bone = NodePath("")
+FABRIK/joint/1/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/1/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/1/basis_direction = 0
+FABRIK/joint/2/twisted_bone = NodePath("")
+FABRIK/joint/2/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/2/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/2/basis_direction = 0
+FABRIK/joint/3/twisted_bone = NodePath("")
+FABRIK/joint/3/magnet_position = Vector3(0, 0, 0)
+FABRIK/joint/3/additional_rotation = Vector3(0, 0, 0)
+FABRIK/joint/3/basis_direction = 0
+FABRIK/joint/3/use_target_basis = false
+
+[node name="Tail" type="Node3D" parent="Dino_Stuff/Twisted_ModifierStack3D"]
+script = ExtResource("8")
+base_settings/execution_enabled = true
+base_settings/execution_mode = 0
+base_settings/force_bone_application = true
+Jiggle/target = null
+Jiggle/use_target_vector_instead_of_node = false
+Jiggle/joint_count = 0
+Jiggle/send_inertia_through_chain = false
+Jiggle/use_lookat = true
+Jiggle/Default_Joint_Data/stiffness = 3.0
+Jiggle/Default_Joint_Data/mass = 0.75
+Jiggle/Default_Joint_Data/damping = 0.75
+Jiggle/Default_Joint_Data/use_gravity = false
+Jiggle/Default_Joint_Data/gravity = Vector3(0, -6, 0)
+
+[node name="Left_Leg" type="Node3D" parent="Dino_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.240773, -0.228642, 0.583626)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Dino_Stuff/Left_Leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.55156, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Dino_Stuff/Left_Leg"]
+
+[node name="Pole" type="Marker3D" parent="Dino_Stuff/Left_Leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.415239, 0.299766)
+
+[node name="Right_Leg" type="Node3D" parent="Dino_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.202119, -0.228642, 0.583626)
+script = ExtResource("7")
+
+[node name="IK_Target" type="Marker3D" parent="Dino_Stuff/Right_Leg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)
+
+[node name="RayCast" type="RayCast3D" parent="Dino_Stuff/Right_Leg"]
+
+[node name="Tail_Target" type="Marker3D" parent="Dino_Stuff"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0228213, -1.66521)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, 5.33126e-09, -0.344868, 5.33126e-09)
+shape = SubResource("1")
+
+[node name="Camera_Rot_Y" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+
+[node name="Camera_Rot_X" type="Node3D" parent="Camera_Rot_Y"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+
+[node name="Camera" type="Camera3D" parent="Camera_Rot_Y/Camera_Rot_X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+size = 8.0
+
+[node name="RayCast_Grounded" type="RayCast3D" parent="."]
+
+[editable path="Dino_Stuff/IK_Dino"]

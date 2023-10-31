@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://hw1y1xkn5tqp"]
 
 [ext_resource type="Script" path="res://system/camera/Camera3D.gd" id="1_twsog"]
-[ext_resource type="PackedScene" uid="uid://yevwnsdi83q1" path="res://Pistol.blend" id="2_xnkin"]
-[ext_resource type="Shader" path="res://shader/pixelar_stylizer.gdshader" id="4_bn2bg"]
+[ext_resource type="PackedScene" uid="uid://yevwnsdi83q1" path="res://system/camera/Pistol.blend" id="2_xnkin"]
+[ext_resource type="Shader" path="res://system/camera/pixelar_stylizer.gdshader" id="4_bn2bg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_87bwt"]
 

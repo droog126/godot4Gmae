@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://lx58ven2m6g7"]
+
+[ext_resource type="PackedScene" uid="uid://c086gje5us1i2" path="res://blender/blender模型/Man.blend" id="1_knhky"]
+
+[node name="Man" instance=ExtResource("1_knhky")]

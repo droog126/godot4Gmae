@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://uclvaoo3qkd3"]
+
+[ext_resource type="PackedScene" uid="uid://da8is80urjrnp" path="res://blender/blender草稿/leg.blend" id="1_r2je8"]
+
+[node name="leg" instance=ExtResource("1_r2je8")]

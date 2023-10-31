@@ -11,17 +11,17 @@ config_version=5
 [application]
 
 config/name="Mygame"
-run/main_scene="res://server/server.tscn"
+run/main_scene="res://lab/lab.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 
 [autoload]
 
-_G="*res://global/_G.gd"
-Global="*res://global/index.gd"
-GDebug="*res://debug/DebugMenu.tscn"
+_G="*res://src/global/_G.gd"
+Global="*res://src/global/index.gd"
+GDebug="*res://system/debug/DebugMenu.tscn"
 GCamera="*res://system/camera/camera.tscn"
 Timeline="*res://system/timeLine/timeline.tscn"
-Utils="*res://global/utils.gd"
+Utils="*res://src/global/utils.gd"
 SmallClassManager="res://src/global/SmallClassManager.tscn"
 Panku="*res://addons/panku_console/console.tscn"
 
@@ -111,7 +111,8 @@ space={
 }
 mouse_right={
 "deadzone": 0.5,
-"events": []
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(179, 7),"global_position":Vector2(183, 48),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
 }
 tab={
 "deadzone": 0.5,

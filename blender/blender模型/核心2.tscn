@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkl15u2ouumy0"]
+
+[ext_resource type="PackedScene" uid="uid://bja154k0ci1n1" path="res://blender/blender模型/核心2.blend" id="1_oi7ab"]
+
+[node name="核心2" instance=ExtResource("1_oi7ab")]
+
+[node name="CollisionShape3D" parent="地图/立方体_002_001/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.95894)
+
+[node name="Boulder" parent="杂项" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.835067, 0, 0, 0, 1, 0.96158, 0.394854, -2.96219)
+
+[node name="Boulder_001" parent="杂项" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13678, 0.526038, -2.341)
+
+[node name="Boulder_Cylinder" parent="杂项" index="4"]
+transform = Transform3D(0.999983, -0.00588173, 2.10347e-09, -1.32349e-23, -3.57628e-07, -1, 0.00588173, 0.999983, -3.57622e-07, 4.52256, 0, 0)
+
+[node name="Cylinder_003" parent="杂项" index="10"]
+transform = Transform3D(-0.368266, -0.301261, 0.879558, 0.289753, 0.861737, 0.416475, 0.883416, -0.408228, 0.230057, -0.336966, 0.756603, -0.250285)
+
+[node name="Cylinder_018" parent="杂项" index="25"]
+transform = Transform3D(-1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0, 0, 1, 0, 0.1, -1.9556)
+
+[node name="Cylinder_019" parent="杂项" index="26"]
+transform = Transform3D(-1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0, 0, 1, 0, 0.576316, 0)
+
+[node name="Grid" parent="杂项" index="29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0262361, 0)
+
+[node name="Grid_004" parent="杂项" index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67557, -5.67326, 0)
+
+[node name="Grid_005" parent="杂项" index="34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.56129, 0)
+
+[node name="Grid_006" parent="杂项" index="35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.73825, 0)
+
+[node name="body" parent="newPeople" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.83668)
+
+[node name="Boulder2" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.835067, 0, 0, 0, 1, 0.0570478, -11.0484, -0.0436251)
+
+[node name="Boulder_0012" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13285, 0.526038, -1.99616)
+
+[node name="Boulder_Cylinder2" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, -3.57628e-07, -1, 0, 1, -3.57628e-07, 2.33129, 0, 2.88271)
+
+[node name="Cylinder2" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44163, 0.724784, -1.02575)
+
+[node name="Cylinder_0032" parent="." index="14"]
+transform = Transform3D(-0.368266, -0.301261, 0.879558, 0.289753, 0.861737, 0.416475, 0.883416, -0.408228, 0.230057, -1.87226, 0.876974, 0.0258968)
+
+[node name="Cylinder_0112" parent="." index="22"]
+transform = Transform3D(-0.403008, 0.558534, -7.65515e-08, 6.74709e-08, 0, -0.856214, -0.638029, -0.352796, 0, 0.23582, 0.449421, -2.2029)
+
+[node name="Cylinder_0182" parent="." index="29"]
+transform = Transform3D(-1.19209e-07, 1, 0, -1, -1.19209e-07, 0, 0, 0, 1, 0, 0.614228, 0)
+
+[node name="Grid2" parent="." index="33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.00747, 0, 0)
+
+[node name="Grid_0042" parent="." index="37"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.2966, 0)
+
+[node name="Grid_0052" parent="." index="38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.12205, 0)
+
+[node name="Grid_0062" parent="." index="39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.0821, 0)
+
+[node name="machine" parent="." index="55"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0451685, -2.06271)
+
+[node name="Plane_002" parent="Josie/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.8377)
+
+[node name="body2" parent="." index="73"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.36792)
