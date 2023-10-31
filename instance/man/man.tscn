@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://x2fimtalb44"]
+[gd_scene load_steps=13 format=3 uid="uid://x2fimtalb44"]
 
+[ext_resource type="Script" path="res://src/man/man.cs" id="1_n3aua"]
 [ext_resource type="Texture2D" uid="uid://8ggihh27mlrr" path="res://other/project1/sprites/blob_shadow.png" id="2_21mhd"]
 [ext_resource type="AudioStream" uid="uid://cydjn1ct3hps2" path="res://other/project1/sounds/walking.ogg" id="3_ifs08"]
 
@@ -140,6 +141,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.249284, 1), 0.0, 0.0, 0, 0, Ve
 point_count = 3
 
 [node name="man" type="CharacterBody3D"]
+script = ExtResource("1_n3aua")
 
 [node name="骨架" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0037977, -0.00442235, -0.039841)
